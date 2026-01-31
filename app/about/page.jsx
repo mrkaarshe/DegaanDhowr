@@ -1,5 +1,5 @@
 "use client";
-import { ArrowRight, Users, Target, Award, Heart, Clock, CheckCircle } from 'lucide-react';
+import { ArrowRight, Users, Target, Award, Heart, Clock, CheckCircle,Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 const stats = [
@@ -53,7 +53,7 @@ const About = () => {
             <h1 className="text-4xl lg:text-5xl font-bold mb-6">
              We provide Professional <span className="text-primary">Cleaning Services</span>
             </h1>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-sm text-muted-foreground">
              Degaan Dhowr Cleaning company is a dedicated provider of professional cleaning services, committed to delivering exceptional cleanliness and customer satisfaction. With a focus on reliability, efficiency, and attention to detail, Degaan Dhowr aims to exceed client expectations in every cleaning project. Our skilled team employs modern techniques and eco-friendly products to ensure a pristine environment for homes and businesses alike. Trust Degaan Dhowr Cleaning services to transform spaces into immaculate havens, promoting health and well-being through their top-tier cleaning solutions
             </p>
           </div>
@@ -77,43 +77,62 @@ const About = () => {
       </section>
 
       {/* Story */}
-      <section className="py-16 lg:py-24">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <span className="inline-block px-4 py-1.5 bg-green-500/70/10 text-primary rounded-full text-sm font-medium mb-4">
-                Our Story
-              </span>
-              <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-                From Humble Beginnings to <span className="text-primary">Industry Leaders</span>
-              </h2>
-              <p className="text-muted-foreground mb-4">
-                Deegan Dhowr started with a simple idea: cleaning should be simple, effective, and environmentally responsible. What began as a small family business has grown into a trusted name in the cleaning industry.
+<section className="py-24 bg-white relative overflow-hidden">
+        {/* Decorative Background Elements */}
+        <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl -z-10" />
+        <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl -z-10" />
+
+        <div className="container mx-auto px-6 text-center">
+          <div className="max-w-3xl mx-auto mb-20">
+            <span className="text-primary font-black text-xs tracking-[0.3em] uppercase mb-4 block">
+              Who We Are
+            </span>
+            <h2 className="text-4xl md:text-5xl font-black text-black/80 leading-tight">
+              Driving Excellence in <span className="text-primary">Hygiene Solutions</span>
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* OUR MISSION */}
+            <div className="group relative p-10 rounded-[40px] bg-[#FBFBFA] border border-black/5 hover:border-primary/20 hover:bg-white hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500">
+              <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:bg-primary group-hover:text-white transition-all duration-500">
+                <Sparkles size={32} className="text-primary group-hover:text-white" />
+              </div>
+              <h3 className="text-2xl font-black text-black/80 mb-4 text-left">Our Mission</h3>
+              <p className="text-gray-500 text-left leading-relaxed font-medium">
+                To provide world-class professional cleaning services in Somalia, ensuring every home and office experiences the highest standards of hygiene and comfort.
               </p>
-              <p className="text-muted-foreground mb-6">
-                Today, we serve thousands of homes and businesses across the country, offering a comprehensive range of cleaning products that deliver professional results without the professional price tag.
-              </p>
-              <Link href="/products">
-                <Button variant="hero">
-                  Explore Our Products
-                  <ArrowRight className="w-4 h-4" />
-                </Button>
-              </Link>
+              <div className="absolute bottom-10 right-10 opacity-5 group-hover:opacity-10 transition-opacity">
+                 <Sparkles size={80} />
+              </div>
             </div>
-            <div className="space-y-1">
-              {timeline.map((item, index) => (
-                <div
-                  key={item.year}
-                  className="flex  items-start gap-4 p-4 rounded-xl bg-muted/50 hover:bg-muted transition-colors"
-                >
-                  <div className="w-16 h-16 rounded-full bg-green-500/80 flex items-center justify-center flex-shrink-0">
-                    <span className="text-white font-bold">{item.year}</span>
-                  </div>
-                  <div className="pt-1">
-                    <p className="text-foreground">{item.event}</p>
-                  </div>
-                </div>
-              ))}
+
+            {/* OUR VISION */}
+            <div className="group relative p-10 rounded-[40px] bg-primary/5 border border-primary/10 hover:border-primary/20 hover:bg-white hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500">
+              <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mb-8 shadow-xl shadow-primary/20">
+                <Target size={32} className="text-white" />
+              </div>
+              <h3 className="text-2xl font-black text-black/80 mb-4 text-left">Our Vision</h3>
+              <p className="text-gray-500 text-left leading-relaxed font-medium">
+                To become the most trusted and innovative environmental service provider in the region, leading the way in eco-friendly and sustainable cleaning technologies.
+              </p>
+              <div className="absolute bottom-10 right-10 opacity-5 group-hover:opacity-10 transition-opacity">
+                 <Target size={80} />
+              </div>
+            </div>
+
+            {/* OUR GOAL */}
+            <div className="group relative p-10 rounded-[40px] bg-[#FBFBFA] border border-black/5 hover:border-primary/20 hover:bg-white hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500">
+              <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:bg-primary group-hover:text-white transition-all duration-500">
+                <Award size={32} className="text-primary group-hover:text-white" />
+              </div>
+              <h3 className="text-2xl font-black text-black/80 mb-4 text-left">Our Goal</h3>
+              <p className="text-gray-500 text-left leading-relaxed font-medium">
+                Our primary goal is 100% customer satisfaction by delivering consistent, reliable, and high-quality maintenance services that exceed expectations every time.
+              </p>
+              <div className="absolute bottom-10 right-10 opacity-5 group-hover:opacity-10 transition-opacity">
+                 <Award size={80} />
+              </div>
             </div>
           </div>
         </div>

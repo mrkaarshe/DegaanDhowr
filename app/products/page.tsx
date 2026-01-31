@@ -42,8 +42,11 @@ export default function ProductsPage() {
   return (
     <main className="min-h-screen bg-[#FBFBFA]">
       {/* Small & Modern Hero */}
-      <section className="bg-green-200/40 pt-32 pb-16 border-b">
+      <section className=" pt-12 pb-16 border-b">
         <div className="max-w-7xl mx-auto px-6 text-center">
+          <div className='flex justify-center items-center '>
+            <h1 className='bg-green-300/40 mb-3 p-1 w-20 rounded-xl text-xs text-center flex justify-center items-center'>Gallery</h1>
+          </div>
           <h1 className="text-3xl md:text-4xl font-black text-gray-900 tracking-tight">
             Premium Cleaning <span className="text-[#00C985]">Essentials</span>
           </h1>
@@ -130,7 +133,7 @@ export default function ProductsPage() {
                             {/* Quick Action Button - Floating */}
                           <button 
                             onClick={() => handleAddToCart(product)}
-                            className={` bg-green-300 w-1/2 py-1.5 rounded-full flex items-center justify-center 
+                            className={` bg-primary text-white w-1/2 py-1.5 rounded-full flex items-center justify-center 
                                transition-all transform active:scale-95 ${
                               addedItems[product.id] ? 'bg-primary text-white' : ' hover:bg-green-500/60 text-gray-900-[#00C985] hover:text-white'
                             }`}

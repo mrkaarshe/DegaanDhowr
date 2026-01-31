@@ -85,10 +85,10 @@ const videoTestimonials = [
     }, 1500)
   }
   return (
-    <main className="bg-white text-gray-900">
+    <main className="bg-white text-gray-900 overflow-x-hidden">
 
       {/* ================= HERO ================= */}
-      <section className="relative min-h-[60vh] flex items-center bg-[#FBFBFA] pt-10">
+      <section className="relative min-h-[60vh] flex items-center bg-[#FBFBFA] pt-15">
   <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
     
     {/* Left Content */}
@@ -114,7 +114,7 @@ const videoTestimonials = [
       </p>
 
       <div className="flex flex-col sm:flex-row gap-4 pt-4">
-        <Button className="h-16 px-10 bg-primary text-primary-foreground rounded-2xl font-bold text-lg shadow-2xl shadow-primary/30 hover:scale-105 transition-all">
+        <Button className="h-16 px-10 bg-primary/90 text-white rounded-2xl font-bold text-lg shadow-2xl shadow-primary/30 hover:scale-105 transition-all">
           Book a Service
         </Button>
         <Button variant="outline" className="h-16 px-10 border-black/10 text-black/80 rounded-2xl font-bold text-lg hover:bg-black/5 transition-all">
@@ -156,7 +156,7 @@ const videoTestimonials = [
       
 
       {/* ================= FEATURES ================= */}
-      <section className="py-20 bg-muted/40">
+      <section className="pt-30 md:py-20 pb-10 bg-muted/40">
         <div className="container mx-auto px-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((f, i) => (
             <div
@@ -175,7 +175,7 @@ const videoTestimonials = [
 
       {/* ================= PRODUCTS ================= */}
        <section className="py-16  bg-gray-50 lg:py-24">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-">
           <div className="text-center mb-12">
             <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
               Our Products
@@ -315,7 +315,7 @@ const videoTestimonials = [
               <img
                 src="/whayChooseUS.jpg"
                 alt="Cleaning Showcase"
-                className="rounded-3xl w-full h-[600px] object-center"
+                className="rounded-3xl w-full min-h-[300px] md:h-[600px] object-center"
               />
               <div className="absolute top-6 right-6 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-xl flex items-center gap-4 animate-bounce">
                 <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white">
@@ -334,7 +334,7 @@ const videoTestimonials = [
 
      {/* testmonilsm */}
     <section className="py-24 bg-gray-50">
-      <div>
+      <div className="mb-12 px-6">
         <h1 className="text-4xl font-black text-center text-gray-900">Customer <span className="text-primary">Testimonials</span></h1>
         <p className="text-center text-gray-500 max-w-2xl mx-auto mt-2">Hear directly from our satisfied clients about their experiences with our professional cleaning services.</p>
       </div>

@@ -181,6 +181,7 @@ export default function ProductItemPage() {
 
       {/* RELATED PRODUCTS - Compact Cards */}
       <section className="max-w-7xl mx-auto px-6 py-24 border-t mt-24">
+        
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
           <div>
             <h2 className="text-3xl font-black text-gray-900 tracking-tight">You May Also Like</h2>

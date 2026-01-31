@@ -194,6 +194,11 @@ export default function PackageDetailsPage() {
 
       {/* RELATED PRODUCTS - Compact Cards Style */}
       <section className="max-w-7xl mx-auto px-6 py-32 border-t mt-20">
+        <div className="mb-8">
+          <span className="inline-block px-4 py-1.5 bg-[#00C985]/10 text-[#00C985] rounded-full text-sm font-medium mb-4">
+            You May Also Like
+          </span>
+        </div>
         <div className="flex justify-between items-end mb-12">
           <div>
             <h2 className="text-3xl font-black text-gray-900">Recommended Packages</h2>
