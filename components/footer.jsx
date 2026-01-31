@@ -6,7 +6,7 @@ import { Facebook, Instagram, Twitter, Linkedin } from 'lucide-react'
 export default function Footer() {
   return (
     <footer className="bg-foreground text-white py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
           <div>
@@ -82,7 +82,7 @@ export default function Footer() {
         {/* Divider */}
         <div className="border-t border-gray-700 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">&copy; 2024 CleanServe. All rights reserved.</p>
+            <p className="text-gray-400 text-sm">&copy; 2026 <a href="https://engkaarshe.vercel.app/" className="text-primary hover:underline">EngKaarshe</a>. All rights reserved.</p>
             <div className="flex space-x-4 mt-4 md:mt-0">
               <a href="#" className="text-gray-400 hover:text-primary text-sm transition-colors">
                 Privacy Policy

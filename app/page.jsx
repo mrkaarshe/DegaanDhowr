@@ -88,7 +88,7 @@ const videoTestimonials = [
     <main className="bg-white text-gray-900">
 
       {/* ================= HERO ================= */}
-      <section className="relative min-h-[90vh] flex items-center bg-[#FBFBFA] pt-20">
+      <section className="relative min-h-[60vh] flex items-center bg-[#FBFBFA] pt-10">
   <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
     
     {/* Left Content */}
@@ -140,13 +140,14 @@ const videoTestimonials = [
     </div>
 
     {/* Right Image/Design */}
-    <div className="relative hidden lg:block">
-      <div className="absolute -top-20 -right-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+    <div className="relative ">
+      <div className='absolute -top-8 bg-green-400/70 mt-3 md:mt-0 rounded-3xl w-full h-96 md:h-140 -rotate-3'></div>
+      <div className="absolute -top-20 -right-20 w-86 h-86 bg-primary/10 rounded-full blur-3xl" />
       <div className="relative z-10 rounded-[40px] overflow-hidden border-8 border-white shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500">
         <img 
           src="/DeganDhowr.jpg" 
           alt="Professional Cleaning" 
-          className="w-full h-[600px] bg-cover object-center"
+          className="w-full max-h-[500px] bg-cover object-center"
         />
       </div>
     </div>
@@ -156,7 +157,7 @@ const videoTestimonials = [
 
       {/* ================= FEATURES ================= */}
       <section className="py-20 bg-muted/40">
-        <div className="max-w-7xl mx-auto px-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="container mx-auto px-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((f, i) => (
             <div
               key={i}
@@ -173,7 +174,7 @@ const videoTestimonials = [
       </section>
 
       {/* ================= PRODUCTS ================= */}
-       <section className="py-16 max-w-7xl mx-auto lg:py-24">
+       <section className="py-16  bg-gray-50 lg:py-24">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
@@ -188,13 +189,13 @@ const videoTestimonials = [
           </div>
 
       
-  <div className="max-w-7xl mx-auto px-6">
+  <div className=" px-6">
     
           {/* Products Grid */}
           <section className="py-12">
-            <div className="max-w-7xl mx-auto px-1">
+            <div className="container mx-auto px-1">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {products.map((product) => (
+                {products.slice(0,4).map((product) => (
                   <Card key={product.id} className="group border-none shadow-sm hover:shadow-xl transition-all duration-300 rounded-2xl overflow-hidden bg-white">
                     {/* Compact Image Area */}
                     <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
@@ -213,23 +214,23 @@ const videoTestimonials = [
     
                     {/* Content Area - More Compact */}
                     <div className="p-4 space-y-2">
-                      <div className="flex justify-between items-start">
+                      <div className="flex justify-between  items-center">
                         <div>
                           <p className="text-[10px] font-bold text-[#00C985] uppercase tracking-wider">{product.code}</p>
-                          <h3 className="text-sm font-bold text-gray-900 line-clamp-1 group-hover:text-[#00C985] transition-colors">
+                          <h3 className="text-sm font-bold text-gray-900 line-clamp-1 group-hover:text-green-500/80 transition-colors">
                             {product.title}
                           </h3>
                         </div>
-                        <span className="text-sm font-black text-gray-900">
+                        <span className="text-lg font-bold text-gray-900">
                           ${product.package_price || product.price}
                         </span>
                       </div>
     
-                      <p className="text-xs text-gray-500 line-clamp-2 leading-relaxed h-8">
+                      <p className="text-xs text-gray-500 line-clamp-2 leading-relaxed h-10">
                         {product.description}
                       </p>
     
-                      <div className="pt-2 flex items-center justify-between space-x-2">
+                      <div className="pt-2 mt-3 flex items-center justify-between space-x-2">
                         <Link 
                           href={product.type === 'package' ? `/package_items/${product.id}` : `/product_item/${product.id}`}
                           className="w-full inline-flex items-center justify-center gap-2 text-[11px] font-bold py-2 bg-gray-200/50 text-gray-600 rounded-lg hover:bg-gray-100 transition-colors"
@@ -241,7 +242,7 @@ const videoTestimonials = [
                         onClick={() => handleAddToCart(product)}
                         className={` bg-green-300 w-1/2 py-1.5 rounded-full flex items-center justify-center 
                            transition-all transform active:scale-95 ${
-                          addedItems[product.id] ? 'bg-primary text-white' : ' hover:bg-green-500/60 text-gray-900-[#00C985] hover:text-white'
+                          addedItems[product.id] ? '' : 'bg-green-500/80 hover:bg-green-500/60 text-white hover:text-white'
                         }`}
                       >
                         {addedItems[product.id] ? <Check className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
@@ -269,7 +270,11 @@ const videoTestimonials = [
       </section>
       {/* ================= WHY US ================= */}
     <section className="py-24 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="container mx-auto px-6">
+         <div className='pb-20'>
+           <h1 className="text-center text-5xl font-bold text-gray-900 mb-3">Why <span className='text-primary'>Choose Our</span> Services</h1>
+          <p className='text-center text-gray-500 max-w-2xl mx-auto'>Discover what makes our cleaning services stand out from the competition.</p>
+         </div>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             
             <div className="relative">
@@ -294,7 +299,7 @@ const videoTestimonials = [
                   { icon: Truck, title: 'Fast Delivery', desc: 'Prompt service response' },
                   { icon: ShieldCheck, title: 'Secure Payment', desc: '100% safe transactions' },
                 ].map((item, i) => (
-                  <div key={i} className="group p-4 rounded-2xl border border-gray-100 hover:border-[#00C985]/30 hover:bg-gray-50 transition-all duration-300">
+                  <div key={i} className="group p-4 rounded-2xl border border-gray-300 hover:border-[#00C985]/90 hover:bg-gray-50 transition-all duration-300">
                     <div className="w-10 h-10 bg-[#00C985] text-white rounded-xl flex items-center justify-center mb-3 shadow-lg shadow-[#00C985]/20">
                       <item.icon className="w-5 h-5" />
                     </div>
@@ -308,9 +313,9 @@ const videoTestimonials = [
             <div className="relative">
               <div className="absolute -bottom-6 -right-6 w-full h-full border-2 border-[#00C985] rounded-3xl -z-10" />
               <img
-                src="/products-showcase.jpg"
+                src="/whayChooseUS.jpg"
                 alt="Cleaning Showcase"
-                className="rounded-3xl shadow-2xl w-full h-[500px] object-cover"
+                className="rounded-3xl w-full h-[600px] object-center"
               />
               <div className="absolute top-6 right-6 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-xl flex items-center gap-4 animate-bounce">
                 <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white">
@@ -327,74 +332,96 @@ const videoTestimonials = [
         </div>
       </section>
 
-      {/* ================= MODERN VIDEO TESTIMONIALS ================= */}
-      <section className="py-24 bg-gray-100 text-primary">
-        <div className="max-w-7xl mx-auto px-6">
+     {/* testmonilsm */}
+    <section className="py-24 bg-gray-50">
+      <div>
+        <h1 className="text-4xl font-black text-center text-gray-900">Customer <span className="text-primary">Testimonials</span></h1>
+        <p className="text-center text-gray-500 max-w-2xl mx-auto mt-2">Hear directly from our satisfied clients about their experiences with our professional cleaning services.</p>
+      </div>
+        <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
             <div>
-              <span className="text-[#00C985] font-bold text-sm tracking-widest uppercase">Testimonials</span>
-              <h2 className="text-4xl font-black mt-2">What our clients say</h2>
+              <span className="text-primary font-bold text-sm tracking-widest uppercase italic">Testimonials</span>
+              <h2 className="text-4xl font-black mt-2 text-black/80">What our clients say</h2>
             </div>
-            <p className="text-gray-400 max-w-xs text-sm">Real stories from people who trust Nadiif Cleaning services every day.</p>
+            <p className="text-gray-500 max-w-xs text-sm">Real stories from people who trust our professional cleaning services every day.</p>
           </div>
 
           <div className="grid lg:grid-cols-12 gap-8">
             
-            {/* BIG MAIN VIDEO PLAYER */}
+            
             <div className="lg:col-span-8">
-              <div className="relative aspect-video rounded-[32px] overflow-hidden shadow-2xl bg-black border border-white/10">
+              <div className="relative aspect-video rounded-[32px] overflow-hidden shadow-2xl bg-black border border-white/10 group">
+                
+                
                 <iframe
-                  src={videoTestimonials[activeVideo].videoUrl}
+                  src={`${videoTestimonials[activeVideo].videoUrl.replace("watch?v=", "embed/").split("&")[0]}?`}
                   className="w-full h-full"
                   title="Testimonial Video"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 />
               </div>
-              <div className="mt-6 flex justify-between items-center bg-white/5 p-6 rounded-2xl">
-                <div>
-                  <h3 className="text-xl font-bold">{videoTestimonials[activeVideo].author}</h3>
-                  <div className="flex gap-1 mt-1 text-[#00C985]">
-                    {[...Array(videoTestimonials[activeVideo].rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-current" />
-                    ))}
+
+              <div className="mt-6 flex justify-between items-center bg-white p-6 rounded-3xl border border-black/5 shadow-sm">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">
+                    {videoTestimonials[activeVideo].author.charAt(0)}
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-black/80">{videoTestimonials[activeVideo].author}</h3>
+                    <div className="flex gap-1 mt-1 text-yellow-500">
+                      {[...Array(videoTestimonials[activeVideo].rating)].map((_, i) => (
+                        <Star key={i} className="w-3 h-3 fill-current" />
+                      ))}
+                    </div>
                   </div>
                 </div>
                 <div className="hidden sm:block text-right">
-                  <p className="text-sm text-gray-400 italic">"Excellent service and support!"</p>
+                  <Badge className="bg-primary/10 text-primary border-none text-[10px] font-black uppercase">Verified Review</Badge>
                 </div>
               </div>
             </div>
 
-            {/* SCROLLABLE PLAYLIST (8 VIDEOS) */}
-            <div className="lg:col-span-4 space-y-4 max-h-[600px] overflow-y-auto pr-2 custom-scrollbar">
+            {/* SCROLLABLE PLAYLIST (THUMBNAILS WITH PLAY ICON) */}
+            <div className="lg:col-span-4 space-y-3 max-h-[670px] overflow-y-auto pr-2 custom-scrollbar">
+              <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4 px-2">Next Reviews ({videoTestimonials.length})</p>
+              
               {videoTestimonials.map((video, index) => (
                 <button
                   key={video.id}
                   onClick={() => setActiveVideo(index)}
-                  className={`w-full group flex items-center gap-4 p-3 rounded-2xl transition-all duration-300 border-2 ${
+                  className={`w-full group flex items-center gap-4 p-2 rounded-2xl transition-all duration-300 border-2 ${
                     activeVideo === index 
-                    ? 'bg-[#00C985]/10 border-[#00C985]' 
-                    : 'bg-white/5 border-black/10 hover:bg-white/10'
+                    ? 'bg-white border-primary shadow-lg scale-[1.02]' 
+                    : 'bg-white/50 border-transparent hover:border-gray-200'
                   }`}
                 >
-                  <div className="relative w-24 h-16 rounded-xl overflow-hidden bg-gray-800 shrink-0">
-                    <div className={`absolute inset-0 border border-white/20 flex items-center justify-center z-10 ${activeVideo === index ? 'bg-[#00C985]/40' : 'bg-black/20 group-hover:bg-black/0'}`}>
-                       <Play className={`w-6 h-6 ${activeVideo === index ? 'text-white' : 'text-white/70'}`} fill="currentColor" />
+                  {/* Video Thumbnail with Play Icon Overlay */}
+                  <div className="relative w-28 h-20 rounded-xl overflow-hidden bg-gray-200 shrink-0">
+                    <img 
+                      src={`https://img.youtube.com/vi/${video.videoUrl.split('/').pop()?.split('?')[0]}/mqdefault.jpg`} 
+                      alt={video.author}
+                      className="w-full h-full object-cover"
+                    />
+                    {/* Play Icon - Always Visible, more active when current */}
+                    <div className={`absolute inset-0 flex items-center justify-center transition-all ${
+                      activeVideo === index ? 'bg-primary/40' : 'bg-black/30 group-hover:bg-black/10'
+                    }`}>
+                       <div className={`p-2 rounded-full backdrop-blur-sm transition-transform group-hover:scale-110 ${
+                         activeVideo === index ? 'bg-white text-primary shadow-lg' : 'bg-white/30 text-white'
+                       }`}>
+                          <Play className="w-4 h-4" fill="currentColor" />
+                       </div>
                     </div>
-                    
-                    <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-900" />
                   </div>
+
                   <div className="text-left overflow-hidden">
-                    <p className={`text-xs font-black uppercase tracking-tighter ${activeVideo === index ? 'text-[#00C985]' : 'text-gray-500'}`}>
-                      Video {index + 1}
+                    <p className={`text-[10px] font-black uppercase tracking-tighter ${activeVideo === index ? 'text-primary' : 'text-gray-400'}`}>
+                      {index === activeVideo ? 'Now Playing' : `Up Next`}
                     </p>
-                    <p className="text-sm font-bold truncate">{video.author}</p>
-                    <div className="flex gap-1 mt-1">
-                      {[...Array(video.rating)].map((_, i) => (
-                        <Star key={i} className="w-2 h-2 text-[#00C985] fill-current" />
-                      ))}
-                    </div>
+                    <p className="text-sm font-bold text-black/80 truncate">{video.title}</p>
+                    <p className="text-xs text-gray-500 font-medium">By {video.author}</p>
                   </div>
                 </button>
               ))}
@@ -406,9 +433,9 @@ const videoTestimonials = [
 
       {/* Custom Scrollbar CSS */}
       <style jsx>{`
-        .custom-scrollbar::-webkit-scrollbar { width: 5px; }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
         .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #00C985; }
       `}</style>
 

@@ -123,7 +123,7 @@ const Career = () => {
               Current <span className="text-primary">Openings</span>
             </h2>
           </div>
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
             {openings.map((job) => (
               <div
                 key={job.id}
