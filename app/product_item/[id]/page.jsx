@@ -11,7 +11,7 @@ import {
 
 import { 
   Minus, Plus, ShoppingCart, Check, ChevronLeft, 
-  ShieldCheck, Truck, Star, ArrowRight, Share2 
+  ShieldCheck, Truck, Star, ArrowRight,  
 } from 'lucide-react'
 import { products } from '@/lib/products'
 import { useCart } from '@/context/cart-context'
@@ -64,9 +64,7 @@ export default function ProductItemPage() {
           </div>
           Back to Shop
         </Link>
-        <button className="w-9 h-9 rounded-full bg-white border border-gray-100 flex items-center justify-center text-gray-400 hover:text-[#00C985] transition-all shadow-sm">
-          <Share2 className="w-4 h-4" />
-        </button>
+
       </div>
 
       <section className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16">

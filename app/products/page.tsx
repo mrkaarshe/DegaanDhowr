@@ -129,14 +129,14 @@ export default function ProductsPage() {
                         <div className="pt-2 mt-3 flex items-center justify-between space-x-2">
                           <Link 
                             href={product.type === 'package' ? `/package_items/${product.id}` : `/product_item/${product.id}`}
-                            className="w-full inline-flex items-center justify-center gap-2 text-[11px] font-bold py-2 bg-gray-200/90 text-gray-600 rounded-lg hover:bg-gray-100 transition-colors"
+                            className="w-full inline-flex items-center justify-center gap-2 text-[11px] font-bold py-3 bg-gray-200/90 text-gray-600 rounded-lg hover:bg-gray-100 transition-colors"
                           >
                             <Info className="w-3 h-3" /> VIEW DETAILS
                           </Link>
                           {/* Quick Action Button - Floating */}
                         <button 
                           onClick={() => handleAddToCart(product)}
-                          className={` bg-green-300 w-1/2 py-1.5 rounded-full flex items-center justify-center 
+                          className={` bg-green-300 w-1/2 py-3 rounded-full flex items-center justify-center 
                              transition-all transform active:scale-95 ${
                             addedItems[product.id] ? '' : 'bg-green-500/80 hover:bg-green-500/60 text-white hover:text-white'
                           }`}
