@@ -85,68 +85,74 @@ export default function ProductsPage() {
       </section>
 
       {/* Products Grid */}
-    <section className="py-12">
-                <div className="max-w-7xl mx-auto px-1">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    {products.map((product) => (
-                      <Card key={product.id} className="group border-none shadow-sm hover:shadow-xl transition-all duration-300 rounded-2xl overflow-hidden bg-white">
-                        {/* Compact Image Area */}
-                        <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
-                          <img
-                            src={product.image || '/placeholder.svg'}
-                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                            alt={product.title}
-                          />
-                          {product.type === 'package' && (
-                            <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-[#00C985] text-[10px] font-black px-2 py-1 rounded-md shadow-sm flex items-center gap-1 uppercase">
-                              <Package className="w-3 h-3" /> Package
-                            </div>
-                          )}
-                          
-                        </div>
-        
-                        {/* Content Area - More Compact */}
-                        <div className="p-4 space-y-2">
-                          <div className="flex justify-between  items-center">
-                            <div>
-                              <p className="text-[10px] font-bold text-[#00C985] uppercase tracking-wider">{product.code}</p>
-                              <h3 className="text-sm font-bold text-gray-900 line-clamp-1 group-hover:text-[#00C985] transition-colors">
-                                {product.title}
-                              </h3>
-                            </div>
-                            <span className="text-sm font-black text-gray-900">
-                              ${product.package_price || product.price}
-                            </span>
+   <div className="py-12 px-6">
+      
+            {/* Products Grid */}
+            <section className="py-12">
+              <div className="container mx-auto px-1">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                  {products.map((product) => (
+                    <div  key={product.id} className=" transition-all duration-300 rounded-2xl overflow-hidden ">
+                      {/* Compact Image Area */}
+                      <div className="relative aspect-[4/3] overflow-hidden ">
+                        <img
+                          src={product.image || '/placeholder.svg'}
+                          className="w-full h-full  rounded-2xl object-cover transition-transform duration-500 group-hover:scale-105"
+                          alt={product.title}
+                        />
+                        {product.type === 'package' && (
+                          <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-[#00C985] text-[10px] font-black px-2 py-1 rounded-md shadow-sm flex items-center gap-1 uppercase">
+                            <Package className="w-3 h-3" /> Package
                           </div>
-        
-                          <p className="text-xs text-gray-500 line-clamp-2 leading-relaxed h-10">
-                            {product.description}
-                          </p>
-        
-                          <div className="pt-2 mt-3 flex items-center justify-between space-x-2">
-                            <Link 
-                              href={product.type === 'package' ? `/package_items/${product.id}` : `/product_item/${product.id}`}
-                              className="w-full inline-flex items-center justify-center gap-2 text-[11px] font-bold py-2 bg-gray-200/50 text-gray-600 rounded-lg hover:bg-gray-100 transition-colors"
-                            >
-                              <Info className="w-3 h-3" /> VIEW DETAILS
-                            </Link>
-                            {/* Quick Action Button - Floating */}
-                          <button 
-                            onClick={() => handleAddToCart(product)}
-                            className={` bg-primary text-white w-1/2 py-1.5 rounded-full flex items-center justify-center 
-                               transition-all transform active:scale-95 ${
-                              addedItems[product.id] ? 'bg-primary text-white' : ' hover:bg-green-500/60 text-gray-900-[#00C985] hover:text-white'
-                            }`}
+                        )}
+                        
+                      </div>
+      
+                      {/* Content Area - More Compact */}
+                      <div className="py-5 space-y-2">
+                        <div className="flex justify-between  items-center">
+                          <div>
+                            <p className="text-[10px] font-bold text-[#00C985] uppercase tracking-wider">{product.code}</p>
+                            <h3 className="text-md font-bold text-gray-900 line-clamp-1 group-hover:text-green-500/80 transition-colors">
+                              {product.title}
+                            </h3>
+                          </div>
+                          <span className="text-lg font-bold text-gray-900">
+                            ${product.package_price || product.price}
+                          </span>
+                        </div>
+      
+                        <p className="text-xs text-gray-500 line-clamp-2 leading-relaxed h-10">
+                          {product.description}
+                        </p>
+      
+                        <div className="pt-2 mt-3 flex items-center justify-between space-x-2">
+                          <Link 
+                            href={product.type === 'package' ? `/package_items/${product.id}` : `/product_item/${product.id}`}
+                            className="w-full inline-flex items-center justify-center gap-2 text-[11px] font-bold py-2 bg-gray-200/90 text-gray-600 rounded-lg hover:bg-gray-100 transition-colors"
                           >
-                            {addedItems[product.id] ? <Check className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
-                          </button>
-                          </div>
+                            <Info className="w-3 h-3" /> VIEW DETAILS
+                          </Link>
+                          {/* Quick Action Button - Floating */}
+                        <button 
+                          onClick={() => handleAddToCart(product)}
+                          className={` bg-green-300 w-1/2 py-1.5 rounded-full flex items-center justify-center 
+                             transition-all transform active:scale-95 ${
+                            addedItems[product.id] ? '' : 'bg-green-500/80 hover:bg-green-500/60 text-white hover:text-white'
+                          }`}
+                        >
+                          {addedItems[product.id] ? <Check className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
+                        </button>
                         </div>
-                      </Card>
-                    ))}
-                  </div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              </section>
+              </div>
+            </section>
+    
+    </div>
+  
     </main>
   )
 }

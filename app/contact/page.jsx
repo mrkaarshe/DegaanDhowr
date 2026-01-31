@@ -36,6 +36,9 @@ export default function ContactPage() {
       {/* Hero Section */}
       <section className=" py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-green-500/10 text-primary rounded-full text-sm font-medium mb-4">
+              Contact Us
+            </span>
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 text-balance">
             Get in <span className="text-primary">Touch</span>
           </h1>

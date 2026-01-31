@@ -196,12 +196,12 @@ const videoTestimonials = [
             <div className="container mx-auto px-1">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {products.slice(0,4).map((product) => (
-                  <Card key={product.id} className="group border-none shadow-sm hover:shadow-xl transition-all duration-300 rounded-2xl overflow-hidden bg-white">
+                  <div  key={product.id} className=" transition-all duration-300 rounded-2xl overflow-hidden ">
                     {/* Compact Image Area */}
-                    <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
+                    <div className="relative aspect-[4/3] overflow-hidden ">
                       <img
                         src={product.image || '/placeholder.svg'}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="w-full h-full  rounded-2xl object-cover transition-transform duration-500 group-hover:scale-105"
                         alt={product.title}
                       />
                       {product.type === 'package' && (
@@ -213,11 +213,11 @@ const videoTestimonials = [
                     </div>
     
                     {/* Content Area - More Compact */}
-                    <div className="p-4 space-y-2">
+                    <div className="py-5 space-y-2">
                       <div className="flex justify-between  items-center">
                         <div>
                           <p className="text-[10px] font-bold text-[#00C985] uppercase tracking-wider">{product.code}</p>
-                          <h3 className="text-sm font-bold text-gray-900 line-clamp-1 group-hover:text-green-500/80 transition-colors">
+                          <h3 className="text-md font-bold text-gray-900 line-clamp-1 group-hover:text-green-500/80 transition-colors">
                             {product.title}
                           </h3>
                         </div>
@@ -233,14 +233,14 @@ const videoTestimonials = [
                       <div className="pt-2 mt-3 flex items-center justify-between space-x-2">
                         <Link 
                           href={product.type === 'package' ? `/package_items/${product.id}` : `/product_item/${product.id}`}
-                          className="w-full inline-flex items-center justify-center gap-2 text-[11px] font-bold py-2 bg-gray-200/50 text-gray-600 rounded-lg hover:bg-gray-100 transition-colors"
+                          className="w-full inline-flex items-center justify-center gap-2 text-[11px] font-bold py-3 bg-gray-200/90 text-gray-600 rounded-lg hover:bg-gray-100 transition-colors"
                         >
                           <Info className="w-3 h-3" /> VIEW DETAILS
                         </Link>
                         {/* Quick Action Button - Floating */}
                       <button 
                         onClick={() => handleAddToCart(product)}
-                        className={` bg-green-300 w-1/2 py-1.5 rounded-full flex items-center justify-center 
+                        className={` bg-green-300 w-1/2 py-3 rounded-full flex items-center justify-center 
                            transition-all transform active:scale-95 ${
                           addedItems[product.id] ? '' : 'bg-green-500/80 hover:bg-green-500/60 text-white hover:text-white'
                         }`}
@@ -249,7 +249,7 @@ const videoTestimonials = [
                       </button>
                       </div>
                     </div>
-                  </Card>
+                  </div>
                 ))}
               </div>
             </div>

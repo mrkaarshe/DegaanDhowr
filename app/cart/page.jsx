@@ -178,25 +178,11 @@ export default function CartPage() {
               </CardContent>
             </Card>
 
-            {/* Info Box */}
-            <Card className="mt-4 bg-secondary border-0">
-              <CardContent className="pt-6">
-                <div className="space-y-3 text-sm">
-                  <div className="flex gap-2">
-                    <span className="text-primary font-bold">✓</span>
-                    <span className="text-gray-700">Free shipping on orders over $50</span>
-                  </div>
-                  <div className="flex gap-2">
-                    <span className="text-primary font-bold">✓</span>
-                    <span className="text-gray-700">30-day money-back guarantee</span>
-                  </div>
-                  <div className="flex gap-2">
-                    <span className="text-primary font-bold">✓</span>
-                    <span className="text-gray-700">Secure checkout with encryption</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+            <div className="mt-6 text-sm text-gray-500">
+              <p>Need help? Contact our <Link href="/contact" className="text-primary hover:underline">support team</Link>.</p>
+            </div>
+            
+           
           </div>
         </div>
       </div>
