@@ -13,7 +13,7 @@ import {
   Minus, Plus, ShoppingCart, Check, ChevronLeft, 
   Package, ShieldCheck, Truck, Star, Info, ArrowRight 
 } from 'lucide-react'
-import { products } from '@/lib/products'
+import { products } from '@/lib/products.json'
 import { useCart } from '@/context/cart-context'
 
 export default function PackageDetailsPage() {
@@ -77,7 +77,7 @@ export default function PackageDetailsPage() {
         <div className="space-y-4">
           <div className="relative aspect-square rounded-[32px] overflow-hidden bg-white border border-gray-100 shadow-sm group">
             <img 
-              src={product.image || '/placeholder.svg'} 
+              src={product.image} 
               alt={product.title} 
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
             />
@@ -193,7 +193,7 @@ export default function PackageDetailsPage() {
       </section>
 
       {/* RELATED PRODUCTS - Compact Cards Style */}
-     <section className="max-w-7xl mx-auto px-6 py-24 border-t mt-24">
+ <section className="max-w-7xl mx-auto px-6 py-24 border-t mt-24">
         
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
           <div>
@@ -208,7 +208,7 @@ export default function PackageDetailsPage() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {relatedProducts.map((p) => (
+          {relatedPackages.map((p) => (
             <div key={p.id} className="group bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
                <div className="relative aspect-square overflow-hidden bg-gray-50">
                   <img src={p.image} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
@@ -232,7 +232,6 @@ export default function PackageDetailsPage() {
           ))}
         </div>
       </section>
-
     </main>
   )
 }

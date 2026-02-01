@@ -6,7 +6,7 @@
       "name": "Freshi-Bleach",
       "code": "2211q",
       "title": "Buraash withf",
-      "image": "Freshi-Bleach.jpg",
+      "image": "/Freshi-Bleach.jpg",
       "description": "Professional carpet cleaning with deep stain removal and deodorization. Includes consultation and follow-up care advice.",
       "price": 7.0,
       "package_price": 7.0,
@@ -23,7 +23,7 @@
       "name": "floor-brush",
       "code": "BR001",
       "title": "Floor Brush",
-      "image": "FRESHI-All-Purpose-Cleaner.jpg",
+      "image": "/FRESHI-All-Purpose-Cleaner.jpg",
       "description": "High-quality floor brush for effective cleaning.",
       "price": 7.0
     },
@@ -33,7 +33,7 @@
       "name": "Freshi-Tile-Cleaner",
       "code": "GC001",
       "title": "General Home Cleaning",
-      "image": "Freshi-Tile-Cleaner.png",
+      "image": "/Freshi-Tile-Cleaner.png",
       "description": "Comprehensive home cleaning package including dusting, vacuuming, and sanitization.",
       "price": 35.0,
       "package_price": 35.0,
@@ -51,7 +51,7 @@
       "name": "The-heavy-duty-plastic-bags",
       "code": "CL001",
       "title": "Premium Microfiber Cloth Set",
-      "image": "The-heavy-duty-plastic-bags.png",
+      "image": "/The-heavy-duty-plastic-bags.png",
       "description": "Set of 10 professional-grade microfiber cloths for streak-free cleaning.",
       "price": 12.0
     },
@@ -61,7 +61,7 @@
       "name": "cleaning-supplies",
       "code": "PC001",
       "title": "Pest Control & Sanitization",
-      "image": "cleaning-supplies.jpeg",
+      "image": "/cleaning-supplies.jpeg",
       "description": "Complete pest control and deep sanitization service for homes and offices.",
       "price": 50.0,
       "package_price": 50.0,
@@ -79,7 +79,7 @@
       "name": "FRESHI-BOWL-CLEANER",
       "code": "VC001",
       "title": "HEPA Filter Vacuum Cleaner",
-      "image": "FRESHI-BOWL-CLEANER.jpg",
+      "image": "/FRESHI-BOWL-CLEANER.jpg",
       "description": "Powerful HEPA filter vacuum for deep cleaning and air purification.",
       "price": 89.0
     }
