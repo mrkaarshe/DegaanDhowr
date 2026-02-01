@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Search, ShoppingCart, Package, Plus, Check, Info } from 'lucide-react'
-import { products } from '@/lib/products'
+import { products } from '@/lib/products.json'
 import { useCart } from '@/context/cart-context';
 
 export default function ProductsPage() {

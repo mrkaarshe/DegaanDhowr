@@ -56,14 +56,13 @@ export default function Home() {
   ]
 
 const videoTestimonials = [
-    { id: 1, title: "Customer Review 1", author: "Abdi Mohamed", rating: 5, videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", thumbnail: "/thumb1.jpg" },
-    { id: 2, title: "Best Cleaning Service", author: "Fartuun Ali", rating: 5, videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", thumbnail: "/thumb2.jpg" },
-    { id: 3, title: "Professional Team", author: "Hassan Nur", rating: 4, videoUrl: "https://youtu.be/pTFZFxd4hOI?si=rRYFEMiuSQJKdaHh", thumbnail: "/thumb3.jpg" },
-    { id: 4, title: "Highly Recommended", author: "Zahra Ahmed", rating: 5, videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", thumbnail: "/thumb4.jpg" },
-    { id: 5, title: "Top Quality Products", author: "Omar Dirie", rating: 5, videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", thumbnail: "/thumb5.jpg" },
-    { id: 6, title: "Great Experience", author: "Muna Isse", rating: 5, videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", thumbnail: "/thumb6.jpg" },
-    { id: 7, title: "Fast Delivery", author: "Khalid Muse", rating: 4, videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", thumbnail: "/thumb7.jpg" },
-    { id: 8, title: "Reliable Support", author: "Idil Aden", rating: 5, videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", thumbnail: "/thumb8.jpg" },
+    { id: 1, title: "Yerdameli Hospital Aragtidoda", author: "Ibrahim Maxamed Hassan ", rating: 5, videoUrl: "https://youtu.be/YzD-sehSj8s?si=cdOfoSunrABmkZ0C", thumbnail: "/thumb1.jpg" },
+    { id: 2, title: "Xooga Hospital Aragtidoda", author: "", rating: 5, videoUrl: "https://youtu.be/gnuvOif7UGc?si=IiwygPYpBrWnfZ47", thumbnail: "/thumb2.jpg" },
+    { id: 3, title: "Siu university Aragtidoda", author: "Nur Ali Abdullahi Afogoye", rating: 4, videoUrl: "https://youtu.be/Wct64lZ7WIE?si=LRr9UvmXaZeuhB3_", thumbnail: "/thumb3.jpg" },
+    { id: 4, title: "Ladan Hospital Aragtidoda", author: "Dr:Apdullahi Ahmed Abtidoon ", rating: 5, videoUrl: "https://youtu.be/cu2n2WCOnBQ?si=VyIeUgcmbfWzSDgC", thumbnail: "/thumb4.jpg" },
+    { id: 5, title: "Qeebta guryaha", author: "Maryan Siciid Mohamed", rating: 3, videoUrl: "https://youtu.be/0y7QBEZuepg?si=lqZSe7XTg3QxQpnM", thumbnail: "/thumb5.jpg" },
+    { id: 6, title: "Aragtida Gudomiyaha Jamacada Al arabia", author: "Mohamed Ibrahim Ali Mansur ", rating: 5, videoUrl: "https://youtu.be/ks_nl9IuOuY?si=5jiVp5aR3aAJS553", thumbnail: "/thumb6.jpg" },
+    { id: 7, title: "ummah Hospital Aragtidoda", author: "Ahmed Mohamed Hassan", rating: 4, videoUrl: "https://youtu.be/Ka3AZ-Ra9So?si=N4F__C-v6Yq7aFiR", thumbnail: "/thumb7.jpg" }
   ]
   
 
@@ -333,112 +332,146 @@ const videoTestimonials = [
       </section>
 
      {/* testmonilsm */}
-    <section className="py-24 bg-gray-50">
-      <div className="mb-12 px-6">
-        <h1 className="text-4xl font-black text-center text-gray-900">Customer <span className="text-primary">Testimonials</span></h1>
-        <p className="text-center text-gray-500 max-w-2xl mx-auto mt-2">Hear directly from our satisfied clients about their experiences with our professional cleaning services.</p>
-      </div>
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+  {/* ================= TESTIMONIALS (VIDEO PLAYER) ================= */}
+<section className="py-24 bg-gray-50">
+  <div className="mb-12 px-6">
+    <div className="flex flex-col items-center text-center space-y-4">
+      <span className="px-4 py-1.5 bg-primary/10 text-primary rounded-full text-xs font-black uppercase tracking-[0.2em]">
+        Verified Reviews
+      </span>
+      <h1 className="text-4xl md:text-5xl font-black text-gray-900">
+        Customer <span className="text-primary">Testimonials</span>
+      </h1>
+      <p className="text-gray-500 max-w-2xl mx-auto text-lg">
+        Daawo muuqaalada macaamiisheena iyo sida ay ugu qanceen adeegyada CleanServe.
+      </p>
+    </div>
+  </div>
+
+  <div className="container mx-auto px-6">
+    <div className="grid lg:grid-cols-12 gap-8 items-start">
+      
+      {/* --- MAIN PLAYER --- */}
+      <div className="lg:col-span-8 group">
+        <div className="relative aspect-video rounded-[32px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)] bg-black border-4 border-white">
+          <iframe
+            key={activeVideo} // Ensures iframe reloads when source changes
+            src={`https://www.youtube.com/embed/${videoTestimonials[activeVideo].videoUrl.split('si=')[0].split('/').pop()?.split('?')[0]}`}
+            className="w-full h-full"
+            title="Testimonial Video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+
+        {/* Info Card under Video */}
+        <div className="mt-8 bg-white p-8 rounded-[24px] border border-black/5 shadow-xl flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="flex items-center gap-5">
+            <div className="w-16 h-16 bg-primary text-white rounded-2xl flex items-center justify-center text-2xl font-black shadow-lg shadow-primary/30">
+              {videoTestimonials[activeVideo].author.charAt(0)}
+            </div>
             <div>
-              <span className="text-primary font-bold text-sm tracking-widest uppercase italic">Testimonials</span>
-              <h2 className="text-4xl font-black mt-2 text-black/80">What our clients say</h2>
+              <h3 className="text-sm md:text-xl font-black text-gray-900 leading-tight">
+                {videoTestimonials[activeVideo].author || "Our Valued Client"}
+              </h3>
+              <div className="flex flex-col items-start gap-2 mt-2">
+                <div className="flex text-yellow-400">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className={`w-4 h-4 ${i < videoTestimonials[activeVideo].rating ? 'fill-current' : 'text-gray-200'}`} />
+                  ))}
+                </div>
+                <span className="text-sm font-bold text-gray-400 ">Verified Purchase</span>
+              </div>
             </div>
-            <p className="text-gray-500 max-w-xs text-sm">Real stories from people who trust our professional cleaning services every day.</p>
           </div>
-
-          <div className="grid lg:grid-cols-12 gap-8">
-            
-            
-            <div className="lg:col-span-8">
-              <div className="relative aspect-video rounded-[32px] overflow-hidden shadow-2xl bg-black border border-white/10 group">
-                
-                
-                <iframe
-                  src={`${videoTestimonials[activeVideo].videoUrl.replace("watch?v=", "embed/").split("&")[0]}?`}
-                  className="w-full h-full"
-                  title="Testimonial Video"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
-
-              <div className="mt-6 flex justify-between items-center bg-white p-6 rounded-3xl border border-black/5 shadow-sm">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">
-                    {videoTestimonials[activeVideo].author.charAt(0)}
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-black/80">{videoTestimonials[activeVideo].author}</h3>
-                    <div className="flex gap-1 mt-1 text-yellow-500">
-                      {[...Array(videoTestimonials[activeVideo].rating)].map((_, i) => (
-                        <Star key={i} className="w-3 h-3 fill-current" />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-                <div className="hidden sm:block text-right">
-                  <Badge className="bg-primary/10 text-primary border-none text-[10px] font-black uppercase">Verified Review</Badge>
-                </div>
-              </div>
-            </div>
-
-            {/* SCROLLABLE PLAYLIST (THUMBNAILS WITH PLAY ICON) */}
-            <div className="lg:col-span-4 space-y-3 max-h-[670px] overflow-y-auto pr-2 custom-scrollbar">
-              <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4 px-2">Next Reviews ({videoTestimonials.length})</p>
-              
-              {videoTestimonials.map((video, index) => (
-                <button
-                  key={video.id}
-                  onClick={() => setActiveVideo(index)}
-                  className={`w-full group flex items-center gap-4 p-2 rounded-2xl transition-all duration-300 border-2 ${
-                    activeVideo === index 
-                    ? 'bg-white border-primary shadow-lg scale-[1.02]' 
-                    : 'bg-white/50 border-transparent hover:border-gray-200'
-                  }`}
-                >
-                  {/* Video Thumbnail with Play Icon Overlay */}
-                  <div className="relative w-28 h-20 rounded-xl overflow-hidden bg-gray-200 shrink-0">
-                    <img 
-                      src={`https://img.youtube.com/vi/${video.videoUrl.split('/').pop()?.split('?')[0]}/mqdefault.jpg`} 
-                      alt={video.author}
-                      className="w-full h-full object-cover"
-                    />
-                    {/* Play Icon - Always Visible, more active when current */}
-                    <div className={`absolute inset-0 flex items-center justify-center transition-all ${
-                      activeVideo === index ? 'bg-primary/40' : 'bg-black/30 group-hover:bg-black/10'
-                    }`}>
-                       <div className={`p-2 rounded-full backdrop-blur-sm transition-transform group-hover:scale-110 ${
-                         activeVideo === index ? 'bg-white text-primary shadow-lg' : 'bg-white/30 text-white'
-                       }`}>
-                          <Play className="w-4 h-4" fill="currentColor" />
-                       </div>
-                    </div>
-                  </div>
-
-                  <div className="text-left overflow-hidden">
-                    <p className={`text-[10px] font-black uppercase tracking-tighter ${activeVideo === index ? 'text-primary' : 'text-gray-400'}`}>
-                      {index === activeVideo ? 'Now Playing' : `Up Next`}
-                    </p>
-                    <p className="text-sm font-bold text-black/80 truncate">{video.title}</p>
-                    <p className="text-xs text-gray-500 font-medium">By {video.author}</p>
-                  </div>
-                </button>
-              ))}
-            </div>
-
+          <div className="flex gap-3">
+             <div className="px-4 py-2 bg-green-50 rounded-full flex items-center gap-2 border border-green-100">
+                <ShieldCheck className="w-4 h-4 text-green-600" />
+                <span className="text-xs font-bold text-green-700 uppercase">Trusted Review</span>
+             </div>
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* Custom Scrollbar CSS */}
-      <style jsx>{`
-        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
-        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #00C985; }
-      `}</style>
+      {/* --- PLAYLIST SIDEBAR --- */}
+      <div className="lg:col-span-4 flex flex-col gap-4 max-h-[700px]">
+        <div className="flex items-center justify-between px-2">
+          <p className="text-xs font-black text-gray-400 uppercase tracking-widest">
+            More Reviews ({videoTestimonials.length})
+          </p>
+          <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+        </div>
+        
+        <div className="space-y-4 overflow-y-auto pr-2 custom-scrollbar pb-10">
+          {videoTestimonials.map((video, index) => {
+             // Extract Video ID for Thumbnail
+             const videoId = video.videoUrl.split('si=')[0].split('/').pop()?.split('?')[0];
+             const isActive = activeVideo === index;
 
+             return (
+              <button
+                key={video.id}
+                onClick={() => {
+                  setActiveVideo(index);
+                  
+                }}
+                className={`w-full group relative flex items-center gap-4 p-3 rounded-2xl transition-all duration-500 border-2 ${
+                  isActive 
+                  ? 'bg-white border-primary shadow-[0_10px_30px_rgba(0,201,133,0.15)] scale-[1.03] z-10' 
+                  : 'bg-white/50 border-transparent hover:border-gray-300 hover:bg-white'
+                }`}
+              >
+                {/* Thumbnail */}
+                <div className="relative w-28 h-20 rounded-xl overflow-hidden bg-gray-200 shrink-0 shadow-md">
+                  <img 
+                    src={`https://img.youtube.com/vi/${videoId}/mqdefault.jpg`} 
+                    alt={video.author}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className={`absolute inset-0 flex items-center justify-center transition-all ${
+                    isActive ? 'bg-primary/40' : 'bg-black/20 group-hover:bg-black/40'
+                  }`}>
+                    <div className={`p-2 rounded-full transition-all ${
+                      isActive ? 'bg-white text-primary scale-110 shadow-lg' : 'bg-white/50 text-white group-hover:scale-110'
+                    }`}>
+                      <Play className="w-4 h-4" fill="currentColor" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Text Info */}
+                <div className="text-left overflow-hidden">
+                  <span className={`text-[10px] font-black uppercase tracking-tighter block mb-1 ${isActive ? 'text-primary' : 'text-gray-400'}`}>
+                    {isActive ? 'Currently Watching' : `Client Story 0${index + 1}`}
+                  </span>
+                  <p className="text-sm font-black text-gray-900 leading-tight line-clamp-2">
+                    {video.title}
+                  </p>
+                  <p className="text-[11px] text-gray-500 font-bold mt-1 truncate">
+                    {video.author || "Anonymous"}
+                  </p>
+                </div>
+
+                {/* Active Indicator */}
+                {isActive && (
+                  <div className="absolute -left-1 top-1/2 -translate-y-1/2 w-2 h-8 bg-primary rounded-full" />
+                )}
+              </button>
+             );
+          })}
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <style jsx>{`
+    .custom-scrollbar::-webkit-scrollbar { width: 5px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 10px; }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #00C985; }
+  `}</style>
+</section>
 
      
 

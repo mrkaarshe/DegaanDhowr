@@ -5,7 +5,7 @@ import { Facebook, Instagram, Twitter, Linkedin } from 'lucide-react'
 
 export default function Footer() {
   return (
-    <footer className="bg-foreground text-white py-12">
+    <footer className="bg-slate-900 text-white py-12">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
@@ -51,11 +51,16 @@ export default function Footer() {
                 Careers
               </Link>
               <a href="tel:+1234567890" className="text-gray-300 hover:text-primary text-sm transition-colors block">
-                +1 (234) 567-890
+                (061)556-5681
               </a>
               <a href="mailto:info@cleanserve.com" className="text-gray-300 hover:text-primary text-sm transition-colors block">
-                info@cleanserve.com
+               
+                Info@degaandhowr.com
+
               </a>
+              <span>
+                Mogadishu Growe Galkacyo
+              </span>
             </div>
           </div>
 

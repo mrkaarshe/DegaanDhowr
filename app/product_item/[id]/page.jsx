@@ -182,7 +182,9 @@ export default function ProductItemPage() {
         
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
           <div>
-            <h2 className="text-3xl font-black text-gray-900 tracking-tight">You May Also Like</h2>
+             <span className="inline-block px-4 py-1.5 bg-[#00C985]/10 text-[#00C985] rounded-full text-sm font-medium mb-4">
+            You May Also Like
+          </span>
             <p className="text-gray-500 mt-2 font-medium">Complete your cleaning set with these top products.</p>
           </div>
           <Link href="/products" className="font-bold text-sm text-[#00C985] hover:underline flex items-center gap-2">

@@ -128,10 +128,10 @@ const Services = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
             <div className="text-center lg:text-left">
-              <h2 className="text-3xl lg:text-4xl font-bold  text-black  -foreground mb-4">
+              <h2 className="text-3xl lg:text-4xl font-bold  text-white  -foreground mb-4">
                 Need Help Choosing the Right Products?
               </h2>
-              <p className="text-lg  text-black  -foreground mb-6">
+              <p className="text-lg  text-white  -foreground mb-6">
                 Our experts are here to help you find the perfect cleaning solutions.
               </p>
             </div>

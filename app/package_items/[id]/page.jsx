@@ -193,43 +193,40 @@ export default function PackageDetailsPage() {
       </section>
 
       {/* RELATED PRODUCTS - Compact Cards Style */}
-      <section className="max-w-7xl mx-auto px-6 py-32 border-t mt-20">
-        <div className="mb-8">
-          <span className="inline-block px-4 py-1.5 bg-[#00C985]/10 text-[#00C985] rounded-full text-sm font-medium mb-4">
+     <section className="max-w-7xl mx-auto px-6 py-24 border-t mt-24">
+        
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+          <div>
+             <span className="inline-block px-4 py-1.5 bg-[#00C985]/10 text-[#00C985] rounded-full text-sm font-medium mb-4">
             You May Also Like
           </span>
-        </div>
-        <div className="flex justify-between items-end mb-12">
-          <div>
-            <h2 className="text-3xl font-black text-gray-900">Recommended Packages</h2>
-            <p className="text-gray-500 mt-2">Discover more cleaning bundles tailored for you.</p>
+            <p className="text-gray-500 mt-2 font-medium">Complete your cleaning set with these top products.</p>
           </div>
-          <Link href="/products" className="hidden sm:flex items-center gap-2 font-bold text-sm text-[#00C985] hover:underline">
-            View All <ArrowRight size={16} />
+          <Link href="/products" className="font-bold text-sm text-[#00C985] hover:underline flex items-center gap-2">
+            Browse All Products <ArrowRight size={16} />
           </Link>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {relatedPackages.map((p) => (
-            <div key={p.id} className="group bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300">
-               <div className="relative aspect-[4/3] overflow-hidden bg-gray-50">
-                  <img src={p.image} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-[#00C985] text-[10px] font-black px-2 py-1 rounded-md shadow-sm">
-                    PACKAGE
-                  </div>
+          {relatedProducts.map((p) => (
+            <div key={p.id} className="group bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
+               <div className="relative aspect-square overflow-hidden bg-gray-50">
+                  <img src={p.image} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors" />
                </div>
-               <div className="p-4">
-                  <h3 className="font-bold text-gray-900 text-sm truncate mb-1 group-hover:text-[#00C985] transition-colors">
+               <div className="p-5">
+                  <div className="flex justify-between items-start mb-2">
+                    <p className="text-[10px] font-bold text-[#00C985] uppercase tracking-widest">{p.code}</p>
+                    <span className="text-sm font-black text-gray-900">${p.price}</span>
+                  </div>
+                  <h3 className="font-bold text-gray-900 text-sm truncate mb-4 group-hover:text-[#00C985] transition-colors">
                     {p.title}
                   </h3>
-                  <div className="flex justify-between items-center">
-                    <span className="font-black text-gray-900">${p.package_price || p.price}</span>
-                    <Link href={`/package_items/${p.id}`}>
-                      <button className="w-8 h-8 rounded-lg bg-gray-50 flex items-center justify-center text-gray-400 group-hover:bg-[#00C985] group-hover:text-white transition-all">
-                        <ArrowRight size={14} />
-                      </button>
-                    </Link>
-                  </div>
+                  <Link href={`/product_item/${p.id}`}>
+                    <Button variant="ghost" className="w-full rounded-xl bg-gray-50 hover:bg-[#00C985] hover:text-white text-xs font-bold transition-all">
+                      View Details
+                    </Button>
+                  </Link>
                </div>
             </div>
           ))}
