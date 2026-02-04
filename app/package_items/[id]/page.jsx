@@ -58,7 +58,7 @@ export default function PackageDetailsPage() {
     <main className="min-h-screen bg-[#FBFBFA] pt-28 pb-20">
       
       {/* Breadcrumb Navigation */}
-      <div className="max-w-7xl mx-auto px-6 mb-8">
+      <div className="container mx-auto px-6 mb-8">
         <Link 
           href="/products" 
           className="inline-flex items-center gap-2 text-sm font-bold text-gray-500 hover:text-[#00C985] transition-colors group"
@@ -71,7 +71,7 @@ export default function PackageDetailsPage() {
       </div>
 
       {/* Main Product Section */}
-      <section className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16">
+      <section className="container mx-auto px-6 grid lg:grid-cols-2 gap-16">
         
         {/* Left: Premium Image Gallery Container */}
         <div className="space-y-4">
@@ -193,7 +193,7 @@ export default function PackageDetailsPage() {
       </section>
 
       {/* RELATED PRODUCTS - Compact Cards Style */}
- <section className="max-w-7xl mx-auto px-6 py-24 border-t mt-24">
+ <section className="container mx-auto px-6 py-24 border-t mt-24">
         
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
           <div>

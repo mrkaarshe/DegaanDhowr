@@ -45,7 +45,7 @@ const About = () => {
     <div className="min-h-screen">
       {/* Hero */}
       <section className="bg-white py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <span className="inline-block px-4 py-1.5 bg-green-500/10 text-primary rounded-full text-sm font-medium mb-4">
               About Us
@@ -62,7 +62,7 @@ const About = () => {
 
       {/* Stats */}
       <section className="py-12 bg-green-500/80 ">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
@@ -82,7 +82,7 @@ const About = () => {
         <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl -z-10" />
         <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl -z-10" />
 
-        <div className="max-w-7xl mx-auto px-6 text-center">
+        <div className="container mx-auto px-6 text-center">
           <div className="max-w-3xl mx-auto mb-20">
             <span className="text-primary font-black text-xs tracking-[0.3em] uppercase mb-4 block">
               Who We Are
@@ -140,7 +140,7 @@ const About = () => {
 
       {/* Values */}
       <section className="py-16 lg:py-24 bg-muted/50">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <span className="inline-block px-4 py-1.5 bg-green-500/10 text-primary rounded-full text-sm font-medium mb-4">
               Our Values
@@ -168,7 +168,7 @@ const About = () => {
 
       {/* CTA */}
       <section className="py-16 bg-green-500/80 lg:py-24 ">
-        <div className="max-w-7xl mx-auto px-4 text-center">
+        <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl lg:text-4xl text-white font-bold  mb-4">
             Ready to Experience the Difference?
           </h2>

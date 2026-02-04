@@ -52,7 +52,7 @@ export default function ProductDetailsPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Back Button */}
-      <div className="max-w-7xl mx-auto px-4 pt-6">
+      <div className="container mx-auto px-4 pt-6">
         <Link href="/products" className="inline-flex items-center gap-2 text-primary hover:text-primary/90 mb-8">
           <ChevronLeft className="w-4 h-4" />
           Back to Products
@@ -60,7 +60,7 @@ export default function ProductDetailsPage() {
       </div>
 
       {/* Product Details */}
-      <section className="py-8 md:py-16 max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <section className="py-8 md:py-16 container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Image */}
         <div className="w-full h-96 md:h-full bg-gray-200 rounded-lg overflow-hidden flex items-center justify-center">
           <img
@@ -162,7 +162,7 @@ export default function ProductDetailsPage() {
 
       {/* Related Products */}
       <section className="py-16 md:py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8">Related Products</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {products

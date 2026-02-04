@@ -1,3 +1,5 @@
+
+
 'use client'
 
 import { useState, useEffect, useMemo } from 'react'
@@ -24,6 +26,7 @@ export default function Home() {
   const [error, setError] = useState<string | null>(null)
   const [productss, setProducts] = useState<any[]>([])
   const [activeVideo, setActiveVideo] = useState(0)
+  const [currentSlide, setCurrentSlide] = useState(0)
   const router = useRouter()
   const { addItem } = useCart()
 
@@ -46,6 +49,27 @@ export default function Home() {
     { id: 6, title: "Al Arabia University", author: "Mohamed Ibrahim Ali", rating: 5, videoUrl: "https://youtu.be/ks_nl9IuOuY", thumbnail: "/thumb6.jpg" },
     { id: 7, title: "Ummah Hospital View", author: "Ahmed Mohamed Hassan", rating: 4, videoUrl: "https://youtu.be/Ka3AZ-Ra9So", thumbnail: "/thumb7.jpg" }
   ]
+    const slides = [
+    "https://scontent.fmgq3-1.fna.fbcdn.net/v/t39.30808-6/488051972_970982855233931_5361198965868680905_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_ohc=VV7hX_BmSJsQ7kNvwFqnLop&_nc_oc=Admr8dAc1OQWVzxM0AxZXbC_JkQ1QmznSMcHQV7Rd7Z8B9dKvTA1FbHfXgAx3CeFg6U&_nc_zt=23&_nc_ht=scontent.fmgq3-1.fna&_nc_gid=Eqw30JWdthRS1b_sC_8EnQ&oh=00_AftDgGHPokD18dPINsYULOIdfqwuWYTdxtLKbBA9uOc_-g&oe=6988E32A",
+    "https://scontent.fmgq3-1.fna.fbcdn.net/v/t39.30808-6/453046411_793396172992601_7775078400042446627_n.png?stp=dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=86c6b0&_nc_ohc=OWje2chtrTAQ7kNvwFO0eu4&_nc_oc=AdmtM2t62AOuejpCKr6-U265RkZJAVBf6wtOqemlu2MFglpXZjbDVaXJmqu6iAHA2KQ&_nc_zt=23&_nc_ht=scontent.fmgq3-1.fna&_nc_gid=KhneMhHlKhMeV9htBAzgHw&oh=00_AfsSoCKKmmv9a5QPvbiVJoZFSN8c36uWLVlDElsAYk79Kw&oe=69891186",
+    "https://scontent.fmgq3-1.fna.fbcdn.net/v/t39.30808-6/473369274_1785974278888695_7388817838228049477_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=chlaJLo9OYEQ7kNvwHxsLV4&_nc_oc=AdncHynUSF1aGQdMCBtbSyvSwFcnIC_TnzdSuJLD-mdhGcEN-kDlUx2FepAnX1MCTKs&_nc_zt=23&_nc_ht=scontent.fmgq3-1.fna&_nc_gid=SloPSvC3l7OvDnAagjLezw&oh=00_Afv3Dj5weNUZgIAmEKaOCwiato6t-_PtTdcEZ35YaLlfjg&oe=6988B9A7",
+    "https://scontent.fmgq3-1.fna.fbcdn.net/v/t39.30808-6/485760711_961188746213342_4616942072599496247_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_ohc=M1e8X1KUfXcQ7kNvwHghCnW&_nc_oc=AdlgAjEjm3bLnuYnSUTSHNuGLf1OF8H3mcXrlO9RzysSl7nxfJXuFyrduIF2vR8RAp0&_nc_zt=23&_nc_ht=scontent.fmgq3-1.fna&_nc_gid=3yVro8ojXp460oAIcuMhhQ&oh=00_Afuh_CTiNK3TksGUul4D8iHfOU24R7wnMoBcqxVjNlBZAg&oe=6988E233"
+
+    ]
+    const clients = [
+    "https://online.siu.edu.so/pluginfile.php/1/theme_academi/logo/1720685942/SIU-LOGO-800x800.png",
+    "https://admin.dtmca.so/wp-content/uploads/2025/09/yardemil.png",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGuMcEjEXXVvvKlPKKXNL9kddQnSbVVMhu2A&s",
+    "https://kulmie.com/media/cache/main_image_listing/custom/domain_1/image_files/2484_photo_5154.webp"
+    ]
+
+    useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length)
+    }, 5000)
+    return () => clearInterval(timer)
+  }, [])
+
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -83,34 +107,37 @@ export default function Home() {
     <main className="relative bg-white text-gray-900 overflow-hidden">
       
       {/* ================= HERO ================= */}
-   <section className=" min-h-screen w-full bg-[#f1f5f2] overflow-hidden font-sans flex items-center">
-        
-        {/* Background Decorative Elements */}
-        <div className="absolute top-[-10%] left-[-5%] w-[500px] h-[500px] bg-green-200/40 rounded-full blur-[120px] -z-10" />
-        <div className="absolute bottom-[-10%] right-[-5%] w-[600px] h-[600px] bg-green-100/50 rounded-full blur-[100px] -z-10" />
-
-        {/* Floating Icons with Opacity */}
-        <div className="absolute top-40 left-20 opacity-[0.03] rotate-12 hidden lg:block">
-          <ShieldCheck size={200} />
-        </div>
-        <div className="absolute bottom-40 right-[40%] opacity-[0.03] -rotate-12 hidden lg:block">
-          <Zap size={150} />
-        </div>
-
-        <div className="container mx-auto px-6 pt-20">
-          <div className="flex flex-col lg:flex-row items-center justify-evenly gap-5">
-            
-            {/* Left Content */}
-            <div className="w-full lg:w-1/2 space-y-8 z-10 text-center lg:text-left">
+  <section className="relative h-[90vh] md:h-[85vh] w-full overflow-hidden">
+   
+        {slides.map((slide, idx) => (
+          <div
+            key={idx}
+            className={`absolute inset-0 top-20 transition-opacity duration-1000 ease-in-out ${
+              idx === currentSlide ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <img 
+              src={slide} 
+              alt={`Slide ${idx + 1}`} 
+              className="w-full h-full object-center object-cover" 
+            />
+            {/* Overlay to make it look professional */}
+            <div className="absolute inset-0 bg-black/20" />
+          </div>
+        ))}
+         <div className='overley w-full h-full blur-[2px] bg-green-400/60 opacity-50 absolute left-0 top-0 right-0 bottom-0'></div>
+        {/* Hero Overlay Content (Optional: If you want text over image) */}
+        <div className="absolute backdrop-blur-[5px]  z-10 inset-0 flex flex-col items-center justify-center text-center px-6">
+              <div className="max-w-7xl mx-auto space-y-2 z-10 text-center lg:text-left">
               <div className="inline-block px-4 py-1.5 bg-white/80 backdrop-blur-sm border border-blue-100 text-green-600 rounded-full text-xs font-bold tracking-widest uppercase">
                 ✨ We Are Degaan Shop
               </div>
               
-              <h1 className="text-5xl lg:text-8xl font-medium text-slate-800 leading-[1.1] tracking-tight">
+              <h1 className="text-5xl lg:text-8xl font-medium text-white leading-[1.1] tracking-tight">
                 Feel Your Way <br /> For <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500/80 to-green-400">Freshness</span>
               </h1>
               
-              <p className="text-slate-500 text-lg max-w-lg mx-auto lg:mx-0 leading-relaxed font-medium">
+              <p className="text-gray-200 text-lg max-w-lg mx-auto lg:mx-0 leading-relaxed font-medium">
                 Experience the epitome of cleanliness with Degaan. We provide top-notch cleaning 
                 solutions tailored to your needs, ensuring your spaces shine.
               </p>
@@ -138,7 +165,7 @@ export default function Home() {
                 <div className="flex -space-x-3">
                   {[1, 2, 3, 4].map((i) => (
                     <div key={i} className="w-12 h-12 rounded-full border-4 border-white bg-slate-200 overflow-hidden shadow-sm">
-                      <img src={`https://i.pravatar.cc/100?img=${i+20}`} alt="client" />
+                      <img src={`${clients[i-1]}`} alt="client" />
                     </div>
                   ))}
                   <div className="w-12 h-12 rounded-full border-4 border-white bg-green-500 flex items-center justify-center text-[10px] text-white font-black">
@@ -146,70 +173,42 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="text-left">
-                   <p className="text-slate-800 text-sm font-bold">Our VIP Clients</p>
-                   <p className="text-slate-400 text-xs">Trusted by 800+ companies</p>
+                   <p className="text-white text-sm font-bold">Our VIP Clients</p>
+                   <p className="text-gray-200 text-xs">Trusted by 800+ companies</p>
                 </div>
               </div>
             </div>
 
-            {/* Right Illustration (Bucket) */}
-            <div className="relative w-full lg:w-1/2 flex justify-center items-center py-10">
-              {/* Dynamic Background Shape */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  bg-green-500/10 rounded-full blur-[100px] -z-10" />
-              
-              {/* Blue Glass Shape */}
-              <div className="absolute bottom-10 left-0 right-0 w-[80%] h-[60%] bg-green-500 rounded-[4rem] -z-10 rotate-[-3deg] shadow-2xl shadow-green-200" />
-              
-              <img 
-                src="/HERO-removed.png" 
-                alt="Cleaning Supplies" 
-                
-               className=" md:w-full absolute md:relative top-0 -right-10 md:right-0 max-w-[620px] md:max-w-[450px] lg:max-w-[550px] h-auto object-contain drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)] z-10 transition-transform hover:scale-105 duration-700"
-              />
+        </div>
 
-              {/* Float Stats on Image */}
-              <div className="absolute md: top-20 right-0 bg-white/80 backdrop-blur-md p-4 rounded-3xl shadow-xl border border-white/50 animate-bounce hidden md:block z-20">
-                 <div className="flex items-center gap-3">
-                   <div className="bg-green-100 p-2 rounded-xl text-green-600"><Award size={20}/></div>
-                   <div>
-                     <p className="text-[10px] font-bold text-gray-400 uppercase">Success</p>
-                     <p className="text-lg font-black">100%</p>
-                   </div>
-                 </div>
+        {/* Slide Indicators */}
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-2">
+            {slides.map((_, i) => (
+                <div 
+                    key={i} 
+                    className={`h-2 rounded-full transition-all ${currentSlide === i ? "w-8 bg-green-500" : "w-2 bg-white/50"}`}
+                />
+            ))}
+        </div>
+      </section>
+
+      {/* ================= FEATURES SECTION (Below Hero) ================= */}
+      <section className="relative z-20 -mt-4 md:-mt-20">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {features.map((f, i) => (
+              <div
+                key={i}
+                className="bg-white border border-gray-300 rounded-3xl p-8 text-center shadow-xl shadow-gray-200/50 hover:-translate-y-2 transition-transform duration-300"
+              >
+                <div className="w-16 h-16 mx-auto mb-5 flex items-center justify-center rounded-2xl bg-green-50 text-green-600">
+                  <f.icon className="w-8 h-8" />
+                </div>
+                <h3 className="font-bold text-xl text-gray-800">{f.title}</h3>
+                <p className="text-sm text-gray-500 mt-3 leading-relaxed">{f.description}</p>
               </div>
-            </div>
+            ))}
           </div>
-<section className="relative mt-60 md:mt-0 md:absolute md:top-200 md:left-0 md:right-0  pt-30 md:py-20 pb-10 bg-muted/0">
-
-<div className="container mx-auto mb px-0 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-
-{features.map((f, i) => (
-
-<div
-
-key={i}
-
-className="bg-white/80 backdrop-blur-md border border-black/10 rounded-2xl p-6 text-center hover:shadow-xl transition"
-
->
-
-<div className="w-14 h-14 mx-auto mb-4 flex items-center justify-center rounded-xl bg-green-100 text-green-600">
-
-<f.icon className="w-7 h-7" />
-
-</div>
-
-<h3 className="font-semibold text-lg">{f.title}</h3>
-
-<p className="text-sm text-gray-600 mt-2">{f.description}</p>
-
-</div>
-
-))}
-
-</div>
-
-</section>
         </div>
       </section>
 
@@ -217,7 +216,7 @@ className="bg-white/80 backdrop-blur-md border border-black/10 rounded-2xl p-6 t
 
       {/* ================= PRODUCTS ================= */}
       <section className="py-34 bg-white">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-1">
           <div className="flex flex-col md:flex-row justify-center items-center mb-16 gap-6">
             <div className="text-center flex justify-center items-center flex-col">
               <span className="text-[#00C985] flex justify-center items-center bg-[#00C985]/10  text-center rounded-2xl font-medium text-sm uppercase tracking-wider mb-2 block">Our Essentials</span>
@@ -239,13 +238,13 @@ className="bg-white/80 backdrop-blur-md border border-black/10 rounded-2xl p-6 t
             </div>
           ) : (
               <div className="container mx-auto px-4 mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {productss.slice(0, 6).map((product) => (
+            {productss.slice(0, 4).map((product) => (
               <div key={product.name} className="group">
-                <Card className="overflow-hidden border border-gray-100 bg-white p-3 rounded-[2.5rem] hover:shadow-2xl hover:shadow-gray-200/40 transition-all duration-500 group">
+                <Card className="overflow-hidden border border-gray-100 bg-white p-3 rounded-[1.5rem] hover:shadow-2xl hover:shadow-gray-200/40 transition-all duration-500 group">
                   
                   {/* Image Section */}
                   <Link href={`/shop/product/detail/${product.code}`}>
-                    <div className="relative aspect-square overflow-hidden rounded-[2rem] bg-[#F9F9F9]">
+                    <div className="relative aspect-square overflow-hidden rounded-[1rem] bg-[#F9F9F9]">
                       <img
                         src={product.image?.startsWith('http') ? product.image : `${BASE_URL}${product.image}`}
                         alt={product.title}
@@ -265,24 +264,24 @@ className="bg-white/80 backdrop-blur-md border border-black/10 rounded-2xl p-6 t
                   </Link>
 
                   {/* Content Section */}
-                  <div className="mt-0 px-2 pb-2">
-                    <div className="flex flex-col  mb-1">
+                       <div className="mt-0 px-2 pb-2">
+                    <div className="flex flex-col ">
                       <div>
-                      <p className="text-[10px] font-bold text-gray-300 uppercase tracking-widest ">
+                      <p className="text-[10px] font-bold text-green-500 uppercase  ">
                       {product.code || "DEGAAN-ITEM"}
                     </p>
 
                       </div>
                       <div className='flex justify-between items-center '>
-                           <h3 className="text-[15px] font-extrabold tracking-wide text-gray-900 truncate group-hover:text-green-500/80 transition-colors">
+                           <h3 className="text-sm font-bold text-gray-900 truncate  transition-colors">
                         {product.title}
                       </h3>
-                      <span className="text-[16px] font-extrabold text-gray-900 tracking-tight">
+                      <span className="text-[16px] font-bold text-slate-900 tracking-tight">
                         ${Number(product.price).toFixed(2)}
                       </span>
                       </div>
                       <div>
-                      <p className="text-xs text-gray-400 line-clamp-1 mb-5 max-h-5">{product.description}</p>
+                      <p className="text-[10px] max-w-70 text-gray-400 line-clamp-1 mb-5 max-h-5">{product.description}</p>
                       </div>
                     </div>
                     
@@ -397,11 +396,11 @@ className="bg-white/80 backdrop-blur-md border border-black/10 rounded-2xl p-6 t
 
           <div className="grid lg:grid-cols-12 gap-5">
             <div className="lg:col-span-8">
-              <div className="relative md:aspect-video  rounded-4xl md:rounded-[3rem] overflow-hidden bg-black  border-8 border-gray-50">
+              <div className="relative min-h-50 md:aspect-video  rounded-4xl md:rounded-[3rem] overflow-hidden bg-black  border-8 border-gray-50">
                 <iframe
                   key={activeVideo}
                   src={`https://www.youtube.com/embed/${videoTestimonials[activeVideo].videoUrl.split('/').pop()}`}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover aspect-square"
                   allowFullScreen
                 />
               </div>

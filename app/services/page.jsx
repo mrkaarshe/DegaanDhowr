@@ -42,7 +42,7 @@ const Services = () => {
     <div className="min-h-screen pt-20">
       {/* Hero */}
       <section className=" py-16 lg:py-14">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <span className="inline-block px-4 py-1.5 bg-green-300/20  text-black  rounded-full text-sm font-medium mb-4">
               Our Services
@@ -65,7 +65,7 @@ const Services = () => {
 
       {/* Services Grid */}
       <section className="py-16 bg-gray-50 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8">
             {services.map((service) => (
               <div
@@ -93,7 +93,7 @@ const Services = () => {
 
       {/* Process */}
       <section className="py-16 lg:py-24 bg-muted/50">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <span className="inline-block px-4 py-1.5 bg-primary/10  text-primary   rounded-full text-sm font-medium mb-4">
               How It Works
@@ -125,7 +125,7 @@ const Services = () => {
 
       {/* CTA */}
       <section className="py-16  lg:py-24 bg-primary">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
             <div className="text-center lg:text-left">
               <h2 className="text-3xl lg:text-4xl font-bold  text-white  -foreground mb-4">

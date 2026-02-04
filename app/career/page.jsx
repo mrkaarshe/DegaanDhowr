@@ -54,7 +54,7 @@ const Career = () => {
       <section className="py-12">
         <div className="">
           <div className="bg-slate-900  p-8 md:p-16 text-white overflow-hidden relative">
-            <div className='max-w-7xl mx-auto px-0 md:px-5 lg:px-7'>
+            <div className='container mx-auto px-0 md:px-5 lg:px-7'>
             <div className="absolute top-0 right-0 p-12 opacity-10">
                 <Sprout size={200} />
             </div>

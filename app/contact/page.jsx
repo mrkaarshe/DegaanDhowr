@@ -37,7 +37,7 @@ export default function ContactPage() {
       {/* 1. TOP INFO SECTION */}
       <section className=" py-16 md:py-24">
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
         <span className="inline-block px-4 py-1.5 bg-green-500/10 text-primary rounded-full text-sm font-medium mb-4">
 
@@ -61,7 +61,7 @@ export default function ContactPage() {
 
         </section>
       <section className="bg-white border-b border-gray-100 py-12">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="flex flex-col items-center text-center space-y-2">
               <div className="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center text-green-600 mb-2">
@@ -97,7 +97,7 @@ export default function ContactPage() {
 
       {/* 2. SPLIT FORM & MAP */}
       <section className="py-20">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             
             {/* SHADCN FORM CARD */}
@@ -179,7 +179,7 @@ export default function ContactPage() {
       </section>
 
       {/* 3. NEW TRUST SECTION (DECORATIVE) */}
-      <section className="max-w-7xl mx-auto px-6 py-12">
+      <section className="container mx-auto px-6 py-12">
         <div className="bg-white rounded-[3rem] p-12 border border-gray-50 shadow-sm grid grid-cols-1 md:grid-cols-3 gap-12">
           <div className="flex flex-col items-center text-center space-y-4">
             <div className="w-14 h-14 bg-green-500 text-white rounded-2xl flex items-center justify-center  shadow-green-100">

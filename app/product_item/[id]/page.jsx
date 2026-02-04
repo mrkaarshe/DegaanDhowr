@@ -54,7 +54,7 @@ export default function ProductItemPage() {
   return (
     <main className="min-h-screen bg-[#FBFBFA] pt-28 pb-20">
       {/* Navigation */}
-      <div className="max-w-7xl mx-auto px-6 mb-8 flex justify-between items-center">
+      <div className="container mx-auto px-6 mb-8 flex justify-between items-center">
         <Link 
           href="/products" 
           className="inline-flex items-center gap-2 text-sm font-bold text-gray-500 hover:text-[#00C985] transition-all group"
@@ -67,7 +67,7 @@ export default function ProductItemPage() {
 
       </div>
 
-      <section className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16">
+      <section className="container mx-auto px-6 grid lg:grid-cols-2 gap-16">
         {/* Left: Product Image */}
         <div className="space-y-6">
           <div className="relative aspect-square rounded-[40px] overflow-hidden bg-white border border-gray-100 shadow-sm group">
@@ -178,7 +178,7 @@ export default function ProductItemPage() {
       </section>
 
       {/* RELATED PRODUCTS - Compact Cards */}
-      <section className="max-w-7xl mx-auto px-6 py-24 border-t mt-24">
+      <section className="container mx-auto px-6 py-24 border-t mt-24">
         
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
           <div>

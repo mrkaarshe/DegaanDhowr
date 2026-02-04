@@ -78,9 +78,9 @@ export default function ProductsPage() {
   )
 
   return (
-    <main className="min-h-screen bg-[#FBFBFA] pb-20">
+    <main className="min-h-screen bg-[#FBFBFA] py-20">
       <header className="pt-16 pb-12 bg-white border-b">
-        <div className="max-w-7xl mx-auto px-6 text-center">
+        <div className="container mx-auto px-6 text-center">
           <div className="inline-flex items-center gap-2 bg-green-50 text-green-600 px-4 py-1.5 rounded-full text-xs font-bold mb-4">
             <ShoppingBag className="w-3.5 h-3.5" />
             <span>DEGAAN SHOP</span>
@@ -90,7 +90,7 @@ export default function ProductsPage() {
       </header>
 
       <nav className="sticky top-0 z-40 bg-white/80 backdrop-blur-xl border-b py-4 shadow-sm">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row gap-4 items-center justify-between">
+        <div className="container mx-auto px-6 flex flex-col md:flex-row gap-4 items-center justify-between">
           <div className="flex bg-gray-100 p-1.5 rounded-2xl w-full md:w-auto">
             {['All', 'Products', 'Packages'].map((cat) => (
               <button
@@ -115,14 +115,14 @@ export default function ProductsPage() {
         </div>
       </nav>
 
-      <div className="max-w-7xl mx-auto px-6 mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="container mx-auto px-6 mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {filteredProducts.map((product) => (
           <div key={product.name} className="group">
-    <Card className="overflow-hidden border border-gray-100 bg-white p-3 rounded-[2.5rem] hover:shadow-2xl hover:shadow-gray-200/40 transition-all duration-500 group">
+    <Card className="overflow-hidden border border-gray-100 bg-white p-3 rounded-[1.5rem] hover:shadow-2xl hover:shadow-gray-200/40 transition-all duration-500 group">
                   
                   {/* Image Section */}
                   <Link href={`/shop/product/detail/${product.code}`}>
-                    <div className="relative aspect-square overflow-hidden rounded-[2rem] bg-[#F9F9F9]">
+                    <div className="relative aspect-square overflow-hidden rounded-[1.5rem] bg-[#F9F9F9]">
                       <img
                         src={product.image?.startsWith('http') ? product.image : `${BASE_URL}${product.image}`}
                         alt={product.title}
@@ -143,23 +143,23 @@ export default function ProductsPage() {
 
                   {/* Content Section */}
                   <div className="mt-0 px-2 pb-2">
-                    <div className="flex flex-col  mb-1">
+                    <div className="flex flex-col ">
                       <div>
-                      <p className="text-[10px] font-bold text-gray-300 uppercase tracking-widest ">
+                      <p className="text-[10px] font-bold text-green-500 uppercase  ">
                       {product.code || "DEGAAN-ITEM"}
                     </p>
 
                       </div>
                       <div className='flex justify-between items-center '>
-                           <h3 className="text-[15px] font-bold text-gray-900 truncate group-hover:text-green-500/80 transition-colors">
+                           <h3 className="text-sm font-bold text-gray-900 truncate  transition-colors">
                         {product.title}
                       </h3>
-                      <span className="text-[16px] font-extrabold text-green-500/90 tracking-tight">
+                      <span className="text-[16px] font-bold text-slate-900 tracking-tight">
                         ${Number(product.price).toFixed(2)}
                       </span>
                       </div>
                       <div>
-                      <p className="text-xs text-gray-400 line-clamp-1 mb-5 max-h-5">{product.description}</p>
+                      <p className="text-[10px] max-w-70 text-gray-400 line-clamp-1 mb-5 max-h-5">{product.description}</p>
                       </div>
                     </div>
                     
@@ -187,7 +187,7 @@ export default function ProductsPage() {
                       </button>
 
                       <Link href={`/shop/product/detail/${product.code}`}>
-                        <div className="w-12 h-12 border border-gray-100 text-gray-400 rounded-2xl flex items-center justify-center hover:bg-gray-50 hover:text-gray-900 transition-all cursor-pointer">
+                        <div className="w-12 h-12 border border-gray-300 text-gray-400 rounded-2xl flex items-center justify-center hover:bg-gray-50 hover:text-gray-900 transition-all cursor-pointer">
                           <Eye className="w-5 h-5" />
                         </div>
                       </Link>

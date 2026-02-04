@@ -16,7 +16,7 @@ export default function CartPage() {
   if (state.items.length === 0) {
     return (
       <main className="min-h-screen bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="text-center space-y-6 py-20">
             <div className="flex justify-center mb-4">
               <ShoppingCart className="w-16 h-16 text-gray-300" />
@@ -41,7 +41,7 @@ export default function CartPage() {
     <main className="min-h-screen bg-gray-50">
       {/* Header */}
       <div className="bg-white border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <Link href="/products" className="inline-flex items-center gap-2 text-primary hover:text-primary/90 mb-4">
             <ChevronLeft className="w-4 h-4" />
             Continue Shopping
@@ -51,7 +51,7 @@ export default function CartPage() {
       </div>
 
       {/* Cart Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Cart Items */}
           <div className="lg:col-span-2 space-y-4">
