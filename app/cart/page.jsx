@@ -11,7 +11,7 @@ import { useCart } from '@/context/cart-context'
 export default function CartPage() {
   const router = useRouter()
   const { state, removeItem, updateQuantity, cartTotal } = useCart()
-  const BASE_URL = "http://192.168.8.11:8000"
+  const BASE_URL = "http://127.0.0.1:8000"
 
   if (state.items.length === 0) {
     return (

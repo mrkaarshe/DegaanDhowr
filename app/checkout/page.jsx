@@ -14,7 +14,7 @@ import {
   Home, CheckCircle2, ShieldCheck, Mail
 } from 'lucide-react'
 
-const BASE_URL = "http://192.168.8.11:8000"
+const BASE_URL = "http://127.0.0.1:8000"
 
 const ShippingStep = ({ formData, setFormData, setCurrentStep }) => (
   <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8">

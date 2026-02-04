@@ -31,7 +31,7 @@ export default function Home() {
   const { addItem } = useCart()
 
   const API_URL = "/api/external/method/degaan_shop.degaan_shop.api.api.products"
-  const BASE_URL = "http://192.168.8.11:8000"
+  const BASE_URL = "http://127.0.0.1:8000"
 
   const features = [
     { icon: Sparkles, title: 'Premium Quality', description: 'Professional-grade cleaning solutions.' },

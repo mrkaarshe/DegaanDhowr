@@ -21,7 +21,7 @@ export default function ProductDetailPage() {
   const [quantity, setQuantity] = useState(1)
   const [isAdded, setIsAdded] = useState(false)
 
-  const BASE_URL = "http://192.168.8.11:8000"
+  const BASE_URL = "http://127.0.0.1:8000"
 
   useEffect(() => {
     const fetchData = async () => {
@@ -74,7 +74,7 @@ export default function ProductDetailPage() {
                 <h1 className="text-4xl font-black text-gray-900">Detail <span className="text-[#00C985]">Page</span></h1>
               </div>
             </header>
-      <div className="max-w-7xl py-20 mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl py-10 mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Breadcrumb - Responsive margin */}
         <Link href="/products" className="inline-flex items-center text-xs lg:text-sm font-medium text-gray-500 hover:text-black mb-6 lg:mb-10 transition-all group">

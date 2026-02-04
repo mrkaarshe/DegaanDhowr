@@ -4,7 +4,7 @@ import Link from 'next/link'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-const BASE_URL = "http://192.168.8.11:8000"
+const BASE_URL = "http://127.0.0.1:8000"
 const Order_URL = "/api/external/confirm-order"
 const [procducts, setProducts] = useState([])
 const [isLoading, setIsLoading] = useState(true)
