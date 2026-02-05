@@ -1,83 +1,141 @@
-"use client"
-import React from 'react'
-import Link from 'next/link'
-import axios from 'axios'
-import { useState, useEffect } from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-const BASE_URL = "http://127.0.0.1:8000"
-const Order_URL = "/api/external/confirm-order"
-const [procducts, setProducts] = useState([])
-const [isLoading, setIsLoading] = useState(true)
-const orderedItems = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('orderedItems') || '[]') : []
-const costomerInfo = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('customerInfo') || '{}') : {}
+'use client'
 
+import { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
+import { CheckCircle2, Smartphone } from 'lucide-react'
 
+const ORDER_URL = 'http://192.168.8.11:8000/api/method/degaan_shop.degaan_shop.api.order.create_order_and_pay'
 
-const fetchData = async (url) => {
+export default function Page() {
+  const router = useRouter()
 
+  const [isLoading, setIsLoading] = useState(true)
+  const [isSuccess, setIsSuccess] = useState(false)
+  const [error, setError] = useState(null)
 
-  const res = await axios.post(url,{
-    orderedItems: orderedItems,
-    costomerInfo: costomerInfo
-  },{
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  })
-  if (!res.ok) {
-    throw new Error('Failed to fetch data')
-  }
-  return res.json()
-}
+  const customerInfo =
+    typeof window !== 'undefined'
+      ? JSON.parse(localStorage.getItem('customerInfo') || '{}')
+      : {}
 
+  const orderedItems =
+    typeof window !== 'undefined'
+      ? JSON.parse(localStorage.getItem('orderedItems') || '[]')
+      : []
 
-useEffect(() => {
-  fetchData('/api/external/confirm-order')
-    .then(data => {
-      console.log('Order confirmed:', data)
-    })
-    .catch(error => {
-      console.error('Error confirming order:', error)
-    })
-}, [])
+  useEffect(() => {
+    const sendOrder = async () => {
+      try {
+        const payload = {
+          order: {
+            customer_full_name: customerInfo.fullName,
+            customer_phone: customerInfo.phone,
+            region: customerInfo.region,
+            district: customerInfo.district,
+            address: customerInfo.address,
+            items: orderedItems.map(i => ({
+              item_code: i.sku || i.id,
+              qty: i.quantity,
+              price: i.price,
+            })),
+            total: orderedItems.reduce(
+              (t, i) => t + i.price * i.quantity,
+              0
+            ),
+            notes: 'Order from web',
+          },
+        }
 
+        const res = await fetch(ORDER_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        })
 
-export const page = () => {
-    
+        if (!res.ok) {
+          throw new Error(`Network response was not ok: ${res.status}`)
+        }
+
+        setTimeout(() => {
+          setIsSuccess(true)
+          setIsLoading(false)
+        }, 1200)
+
+        setTimeout(() => {
+          router.push('/')
+        }, 3000)
+      } catch (err) {
+        console.error('Network Error:', err)
+        setError('Failed to send order. Please try again.')
+        setIsLoading(false)
+      }
+    }
+
+    sendOrder()
+  }, [])
+
   return (
-    <div>
-        <main className="min-h-screen bg-white flex items-center justify-center py-20">
-            <Card className="max-w-md w-full p-6 shadow-lg border border-gray-100"> 
-                <CardHeader>
-                    <CardTitle className="text-2xl font-bold text-center text-green-600">
-                        Thank You for Your Order!
-                    </CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <p className="text-gray-700 mb-4">
-                        We appreciate your business. Your order has been successfully placed and is being processed.
-                    </p>
-                    <div className="bg-green-50 p-4 rounded-lg">
-                        <h3 className="font-semibold mb-2 text-green-800">Order Summary:</h3>
-                        <ul className="list-disc list-inside space-y-1">
-                            {orderedItems.map((item, index) => (
-                                <li key={index} className="text-gray-700">
-                                    {item.name} x {item.quantity} - ${item.price * item.quantity}
-                                </li>
-                            ))}
-                        </ul>
-                        <p className="mt-4 font-bold text-gray-900">
-                            Total: ${orderedItems.reduce((total, item) => total + item.price * item.quantity, 0)}
-                        </p>
-                    </div>
-                    <div className="mt-6 text-center">
-                        <Link href="/" className="inline-block bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors">
-                            Continue Shopping
-                        </Link>
-                    </div>
-                </CardContent>
-            </Card>
-        </main>
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+      <div className="relative w-full max-w-md rounded-2xl border bg-white shadow-sm overflow-hidden">
+
+        {/* Loading Overlay */}
+        {isLoading && (
+          <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-white/80 backdrop-blur-sm">
+            <div className="h-12 w-12 animate-spin rounded-full border-4 border-green-500/80 border-t-transparent mb-4" />
+            <p className="text-sm font-semibold text-gray-700">
+              Processing your order…
+            </p>
+          </div>
+        )}
+
+        {/* Success Overlay */}
+        {isSuccess && (
+          <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-white text-center px-6">
+            <CheckCircle2 size={44} className="text-green-500/80 mb-3" />
+            <h2 className="text-xl font-bold text-gray-900">
+              Order Confirmed
+            </h2>
+            <p className="text-sm text-gray-500 mt-1">
+              Your order is being processed and will be delivered shortly.
+            </p>
+          </div>
+        )}
+
+        {/* Error Overlay */}
+        {error && !isLoading && (
+          <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-red-50 text-center px-6">
+            <p className="text-red-500 font-bold">{error}</p>
+          </div>
+        )}
+
+        {/* Card Content */}
+        <div className="p-6 space-y-6">
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-bold uppercase tracking-widest text-gray-400">
+              Mobile Money
+            </span>
+            <Smartphone className="text-green-500/80" />
+          </div>
+
+          <div>
+            <p className="text-sm text-gray-500">Customer Name</p>
+            <p className="text-lg font-bold text-gray-900">
+              {customerInfo.fullName || '—'}
+            </p>
+          </div>
+
+          <div>
+            <p className="text-sm text-gray-500">Mobile Number</p>
+            <p className="text-lg font-mono font-bold text-gray-900">
+              {customerInfo.phone || '—'}
+            </p>
+          </div>
+
+          <div className="h-2 w-full rounded-full bg-green-500/80" />
+        </div>
+      </div>
     </div>
   )
 }

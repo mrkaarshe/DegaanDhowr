@@ -18,6 +18,8 @@ import {
 } from 'lucide-react'
 import {Users,  DollarSign } from "lucide-react";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 
 export default function Home() {
@@ -31,7 +33,7 @@ export default function Home() {
   const { addItem } = useCart()
 
   const API_URL = "/api/external/method/degaan_shop.degaan_shop.api.api.products"
-  const BASE_URL = "http://127.0.0.1:8000"
+  const BASE_URL = "http://192.168.8.11:8000"
 
   const features = [
     { icon: Sparkles, title: 'Premium Quality', description: 'Professional-grade cleaning solutions.' },
@@ -70,6 +72,10 @@ export default function Home() {
     return () => clearInterval(timer)
   }, [])
 
+    useEffect(() => {
+    AOS.init({ duration: 700, once: true });
+  }, []);
+
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -90,17 +96,17 @@ export default function Home() {
     fetchProducts()
   }, [])
 
-  const handleAddToCart = (product) => {
+  const handleAddToCart = (product: any) => {
     addItem({
-      id: product.name,
+      id: product.code,
       title: product.title,
       code: product.code,
       price: product.price,
       image: product.image,
       type: product.type,
     })
-    setAddedItems((prev) => ({ ...prev, [product.name]: true }))
-    setTimeout(() => setAddedItems((prev) => ({ ...prev, [product.name]: false })), 1500)
+    setAddedItems((prev) => ({ ...prev, [product.code]: true }))
+    setTimeout(() => setAddedItems((prev) => ({ ...prev, [product.code]: false })), 1500)
   }
 
   return (
@@ -143,7 +149,7 @@ export default function Home() {
               </p>
 
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6">
-                <Link href="/products">
+                <Link href="/services">
                   <button className="group flex items-center gap-3 bg-green-500/80 hover:bg-green-500 text-white px-10 py-5 rounded-full font-bold transition-all shadow-2xl shadow-green-200 active:scale-95">
                     OUR SERVICES
                     <div className="bg-white/20 p-1 rounded-full group-hover:translate-x-1 transition-transform">
@@ -193,15 +199,16 @@ export default function Home() {
       </section>
 
       {/* ================= FEATURES SECTION (Below Hero) ================= */}
-      <section className="relative z-20 -mt-4 md:-mt-20">
+      <section className="relative z-20 -mt-4 md:-mt-26">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((f, i) => (
               <div
+              data-aos="fade-up"
                 key={i}
-                className="bg-white border border-gray-300 rounded-3xl p-8 text-center shadow-xl shadow-gray-200/50 hover:-translate-y-2 transition-transform duration-300"
+                className="bg-gradient-to-b from-white/30 backdrop-blur-xs to-white border border-gray-300 rounded-3xl p-9 text-center shadow-xl shadow-gray-200/50 hover:-translate-y-2 transition-transform duration-300"
               >
-                <div className="w-16 h-16 mx-auto mb-5 flex items-center justify-center rounded-2xl bg-green-50 text-green-600">
+                <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-2xl bg-green-50 text-green-600">
                   <f.icon className="w-8 h-8" />
                 </div>
                 <h3 className="font-bold text-xl text-gray-800">{f.title}</h3>
@@ -292,12 +299,12 @@ export default function Home() {
                       <button 
                         onClick={(e) => handleAddToCart(product)}
                         className={`flex-1 flex items-center justify-center gap-2 py-3.5 rounded-2xl font-black text-[10px] tracking-[0.1em] transition-all duration-300 active:scale-95 ${
-                          addedItems[product.name] 
+                          addedItems[product.code] 
                           ? 'bg-black text-white' 
                           : 'bg-green-500/80 text-white hover:bg-green-600/90 shadow-lg shadow-green-500/20'
                         }`}
                       >
-                        {addedItems[product.name] ? (
+                        {addedItems[product.code] ? (
                           <>
                             <Check className="w-4 h-4" /> ADDED
                           </>

@@ -24,7 +24,7 @@ export default function ProductsPage() {
   const router = useRouter()
 
   const API_URL = "/api/external/method/degaan_shop.degaan_shop.api.api.products"
-  const BASE_URL = "http://127.0.0.1:8000"
+  const BASE_URL = "http://192.168.8.11:8000/"
 
   useEffect(() => {
     const fetchProducts = async () => {

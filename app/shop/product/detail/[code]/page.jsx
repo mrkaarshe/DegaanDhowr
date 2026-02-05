@@ -21,7 +21,7 @@ export default function ProductDetailPage() {
   const [quantity, setQuantity] = useState(1)
   const [isAdded, setIsAdded] = useState(false)
 
-  const BASE_URL = "http://127.0.0.1:8000"
+  const BASE_URL = "http://192.168.8.11:8000/"
 
   useEffect(() => {
     const fetchData = async () => {
@@ -129,7 +129,7 @@ export default function ProductDetailPage() {
           <div className="lg:col-span-5 flex flex-col space-y-6 lg:space-y-8">
             <div className="space-y-4">
               <div className="flex flex-wrap items-center gap-2 lg:gap-3">
-                <span className={`px-3 py-1 rounded-full text-[9px] lg:text-[10px] font-black tracking-widest uppercase shadow-sm ${isPackage ? 'bg-[#00C985] text-white' : 'bg-black text-white'}`}>
+                <span className={`px-3 py-1 rounded-full text-[9px] lg:text-[10px] font-black tracking-widest uppercase shadow-sm ${isPackage ? 'bg-[#00C985] text-white' : 'bg-[#00C985] text-white'}`}>
                   {isPackage ? 'Package' : 'Single Item'}
                 </span>
                 <span className="text-gray-400 font-bold text-[9px] lg:text-[10px] uppercase tracking-widest leading-none">SKU: {product.code}</span>

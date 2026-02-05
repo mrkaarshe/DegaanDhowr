@@ -31,8 +31,8 @@ export default function Navbar({ cartCount = 3 }) {
       <nav 
         className={`fixed top-0 w-full z-50 transition-all duration-500 ${
           isScrolled 
-            ? 'bg-white/90 backdrop-blur-md shadow-md py-0 border-b border-gray-100' 
-            : 'bg-white py-2'
+            ? 'bg-white/90  backdrop-blur-md shadow-md py-0 border-b border-gray-100' 
+            : 'bg-white shadow-sm py-2'
         }`}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
