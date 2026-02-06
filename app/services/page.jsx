@@ -138,14 +138,14 @@ const Services = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/contact">
                 <button
-                  
+
                   className="bg-primary-foreground flex justify-between items-center gap-3 text-white px-6 py-3 rounded-lg hover:bg-primary-foreground/10 "
                 >
                   <Phone className="w-5 h-5" />
                   Contact Us
                 </button>
               </Link>
-              <Link href="/products">
+              <Link href="/shop/products">
                 <button
 
                   className="border flex justify-between items-center gap-3 text-white px-6 py-3 rounded-lg hover:bg-primary-foreground/10"

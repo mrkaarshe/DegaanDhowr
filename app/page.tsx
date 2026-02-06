@@ -22,6 +22,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { getProducts } from '@/lib/api/services/products'
 import { ASSET_BASE_URL } from '@/lib/api/config'
+import { HOME_CLIENT_LOGOS, HOME_SLIDES, HOME_VIDEO_TESTIMONIALS } from './home-data'
 
 
 export default function Home() {
@@ -34,35 +35,18 @@ export default function Home() {
   const router = useRouter()
   const { addItem } = useCart()
 
-  const features = [
-    { icon: Sparkles, title: 'Premium Quality', description: 'Professional-grade cleaning solutions.' },
-    { icon: Leaf, title: 'Eco Friendly', description: 'Safe for families and the environment.' },
-    { icon: Shield, title: 'Trusted Service', description: 'Experienced and certified professionals.' },
-    { icon: Truck, title: 'Fast Delivery', description: 'Quick response and on-time delivery.' },
-  ]
-
-  const videoTestimonials = [
-    { id: 1, title: "Yerdameli Hospital Experience", author: "Ibrahim Maxamed Hassan", rating: 5, videoUrl: "https://youtu.be/YzD-sehSj8s", thumbnail: "/thumb1.jpg" },
-    { id: 2, title: "Xooga Hospital Feedback", author: "Client Feedback", rating: 5, videoUrl: "https://youtu.be/gnuvOif7UGc", thumbnail: "/thumb2.jpg" },
-    { id: 3, title: "SIU University Review", author: "Nur Ali Abdullahi", rating: 4, videoUrl: "https://youtu.be/Wct64lZ7WIE", thumbnail: "/thumb3.jpg" },
-    { id: 4, title: "Ladan Hospital Review", author: "Dr. Abdullahi Ahmed", rating: 5, videoUrl: "https://youtu.be/cu2n2WCOnBQ", thumbnail: "/thumb4.jpg" },
-    { id: 5, title: "Residential Service", author: "Maryan Siciid Mohamed", rating: 3, videoUrl: "https://youtu.be/0y7QBEZuepg", thumbnail: "/thumb5.jpg" },
-    { id: 6, title: "Al Arabia University", author: "Mohamed Ibrahim Ali", rating: 5, videoUrl: "https://youtu.be/ks_nl9IuOuY", thumbnail: "/thumb6.jpg" },
-    { id: 7, title: "Ummah Hospital View", author: "Ahmed Mohamed Hassan", rating: 4, videoUrl: "https://youtu.be/Ka3AZ-Ra9So", thumbnail: "/thumb7.jpg" }
-  ]
-    const slides = [
-    "https://scontent.fmgq3-1.fna.fbcdn.net/v/t39.30808-6/488051972_970982855233931_5361198965868680905_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_ohc=VV7hX_BmSJsQ7kNvwFqnLop&_nc_oc=Admr8dAc1OQWVzxM0AxZXbC_JkQ1QmznSMcHQV7Rd7Z8B9dKvTA1FbHfXgAx3CeFg6U&_nc_zt=23&_nc_ht=scontent.fmgq3-1.fna&_nc_gid=Eqw30JWdthRS1b_sC_8EnQ&oh=00_AftDgGHPokD18dPINsYULOIdfqwuWYTdxtLKbBA9uOc_-g&oe=6988E32A",
-    "https://scontent.fmgq3-1.fna.fbcdn.net/v/t39.30808-6/453046411_793396172992601_7775078400042446627_n.png?stp=dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=86c6b0&_nc_ohc=OWje2chtrTAQ7kNvwFO0eu4&_nc_oc=AdmtM2t62AOuejpCKr6-U265RkZJAVBf6wtOqemlu2MFglpXZjbDVaXJmqu6iAHA2KQ&_nc_zt=23&_nc_ht=scontent.fmgq3-1.fna&_nc_gid=KhneMhHlKhMeV9htBAzgHw&oh=00_AfsSoCKKmmv9a5QPvbiVJoZFSN8c36uWLVlDElsAYk79Kw&oe=69891186",
-    "https://scontent.fmgq3-1.fna.fbcdn.net/v/t39.30808-6/473369274_1785974278888695_7388817838228049477_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=chlaJLo9OYEQ7kNvwHxsLV4&_nc_oc=AdncHynUSF1aGQdMCBtbSyvSwFcnIC_TnzdSuJLD-mdhGcEN-kDlUx2FepAnX1MCTKs&_nc_zt=23&_nc_ht=scontent.fmgq3-1.fna&_nc_gid=SloPSvC3l7OvDnAagjLezw&oh=00_Afv3Dj5weNUZgIAmEKaOCwiato6t-_PtTdcEZ35YaLlfjg&oe=6988B9A7",
-    "https://scontent.fmgq3-1.fna.fbcdn.net/v/t39.30808-6/485760711_961188746213342_4616942072599496247_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_ohc=M1e8X1KUfXcQ7kNvwHghCnW&_nc_oc=AdlgAjEjm3bLnuYnSUTSHNuGLf1OF8H3mcXrlO9RzysSl7nxfJXuFyrduIF2vR8RAp0&_nc_zt=23&_nc_ht=scontent.fmgq3-1.fna&_nc_gid=3yVro8ojXp460oAIcuMhhQ&oh=00_Afuh_CTiNK3TksGUul4D8iHfOU24R7wnMoBcqxVjNlBZAg&oe=6988E233"
-
-    ]
-    const clients = [
-    "https://online.siu.edu.so/pluginfile.php/1/theme_academi/logo/1720685942/SIU-LOGO-800x800.png",
-    "https://admin.dtmca.so/wp-content/uploads/2025/09/yardemil.png",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGuMcEjEXXVvvKlPKKXNL9kddQnSbVVMhu2A&s",
-    "https://kulmie.com/media/cache/main_image_listing/custom/domain_1/image_files/2484_photo_5154.webp"
-    ]
+  const features = useMemo(
+    () => [
+      { icon: Sparkles, title: 'Premium Quality', description: 'Professional-grade cleaning solutions.' },
+      { icon: Leaf, title: 'Eco Friendly', description: 'Safe for families and the environment.' },
+      { icon: Shield, title: 'Trusted Service', description: 'Experienced and certified professionals.' },
+      { icon: Truck, title: 'Fast Delivery', description: 'Quick response and on-time delivery.' },
+    ],
+    []
+  )
+  const slides = HOME_SLIDES
+  const clients = HOME_CLIENT_LOGOS
+  const videoTestimonials = HOME_VIDEO_TESTIMONIALS
 
     useEffect(() => {
     const timer = setInterval(() => {
@@ -104,9 +88,21 @@ export default function Home() {
 
   return (
     <main className="relative bg-white text-gray-900 overflow-hidden">
-      
+      <HeroSection
+        slides={slides}
+        clients={clients}
+        currentSlide={currentSlide}
+      />
+
+      <FeaturesSection features={features} />
+
+      {/* ================= PRODUCTS ================= */}
+      {/* (kept as-is for now, just grouped under a section label) */}
+      {/* ================= WHY CHOOSE US ================= */}
+      {/* ================= TESTIMONIALS (VIDEO) ================= */}
+
       {/* ================= HERO ================= */}
-  <section className="relative h-[90vh] md:h-[85vh] w-full overflow-hidden">
+  <section className="relative h-[90vh] md:h-[85vh] w-full overflow-hidden hidden">
    
         {slides.map((slide, idx) => (
           <div
@@ -460,6 +456,124 @@ export default function Home() {
         .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #00C985; }
       `}</style>
     </main>
+  )
+}
+
+function HeroSection({
+  slides,
+  clients,
+  currentSlide,
+}: {
+  slides: string[]
+  clients: string[]
+  currentSlide: number
+}) {
+  return (
+    <section className="relative h-[90vh] md:h-[85vh] w-full overflow-hidden">
+      {slides.map((slide, idx) => (
+        <div
+          key={idx}
+          className={`absolute inset-0 top-20 transition-opacity duration-1000 ease-in-out ${
+            idx === currentSlide ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <img src={slide} alt={`Slide ${idx + 1}`} className="w-full h-full object-center object-cover" />
+          <div className="absolute inset-0 bg-black/20" />
+        </div>
+      ))}
+
+      <div className="overley w-full h-full blur-[2px] bg-green-400/60 opacity-50 absolute left-0 top-0 right-0 bottom-0" />
+
+      <div className="absolute backdrop-blur-[5px]  z-10 inset-0 flex flex-col items-center justify-center text-center px-6">
+        <div className="max-w-7xl mx-auto space-y-2 z-10 text-center lg:text-left">
+          <div className="inline-block px-4 py-1.5 bg-white/80 backdrop-blur-sm border border-blue-100 text-green-600 rounded-full text-xs font-bold tracking-widest uppercase">
+            ✨ We Are Degaan Shop
+          </div>
+
+          <h1 className="text-5xl lg:text-8xl font-medium text-white leading-[1.1] tracking-tight">
+            Feel Your Way <br /> For{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500/80 to-green-400">Freshness</span>
+          </h1>
+
+          <p className="text-gray-200 text-lg max-w-lg mx-auto lg:mx-0 leading-relaxed font-medium">
+            Experience the epitome of cleanliness with Degaan. We provide top-notch cleaning solutions tailored to your
+            needs, ensuring your spaces shine.
+          </p>
+
+          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6">
+            <Link href="/services">
+              <button className="group flex items-center gap-3 bg-green-500/80 hover:bg-green-500 text-white px-10 py-5 rounded-full font-bold transition-all shadow-2xl shadow-green-200 active:scale-95">
+                OUR SERVICES
+                <div className="bg-white/20 p-1 rounded-full group-hover:translate-x-1 transition-transform">
+                  <ArrowRight size={18} />
+                </div>
+              </button>
+            </Link>
+
+            <button
+              onClick={() => window.scrollTo({ top: 2500, behavior: 'smooth' })}
+              className="w-16 h-16 flex items-center justify-center bg-white rounded-full text-green-600 shadow-xl hover:scale-110 transition-transform border border-green-50"
+            >
+              <Play fill="currentColor" size={24} className="ml-1" />
+            </button>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center gap-4 pt-4 justify-center lg:justify-start">
+            <div className="flex -space-x-3">
+              {[1, 2, 3, 4].map((i) => (
+                <div key={i} className="w-12 h-12 rounded-full border-4 border-white bg-slate-200 overflow-hidden shadow-sm">
+                  <img src={`${clients[i - 1]}`} alt="client" />
+                </div>
+              ))}
+              <div className="w-12 h-12 rounded-full border-4 border-white bg-green-500 flex items-center justify-center text-[10px] text-white font-black">
+                +65
+              </div>
+            </div>
+            <div className="text-left">
+              <p className="text-white text-sm font-bold">Our VIP Clients</p>
+              <p className="text-gray-200 text-xs">Trusted by 800+ companies</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-2">
+        {slides.map((_, i) => (
+          <div
+            key={i}
+            className={`h-2 rounded-full transition-all ${currentSlide === i ? 'w-8 bg-green-500' : 'w-2 bg-white/50'}`}
+          />
+        ))}
+      </div>
+    </section>
+  )
+}
+
+function FeaturesSection({
+  features,
+}: {
+  features: { icon: any; title: string; description: string }[]
+}) {
+  return (
+    <section className="relative z-20 -mt-4 md:-mt-26">
+      <div className="container mx-auto px-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {features.map((f, i) => (
+            <div
+              data-aos="fade-up"
+              key={i}
+              className="bg-gradient-to-b from-white/30 backdrop-blur-xs to-white border border-gray-300 rounded-3xl p-9 text-center shadow-xl shadow-gray-200/50 hover:-translate-y-2 transition-transform duration-300"
+            >
+              <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-2xl bg-green-50 text-green-600">
+                <f.icon className="w-8 h-8" />
+              </div>
+              <h3 className="font-bold text-xl text-gray-800">{f.title}</h3>
+              <p className="text-sm text-gray-500 mt-3 leading-relaxed">{f.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   )
 }
 

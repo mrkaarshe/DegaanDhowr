@@ -1,5 +1,5 @@
 "use client";
-import { ArrowRight, Users, Target, Award, Heart, Clock, CheckCircle,Sparkles } from 'lucide-react';
+import { ArrowRight, Users, Target, Award, Heart, Clock, CheckCircle, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 const stats = [
@@ -51,10 +51,10 @@ const About = () => {
               About Us
             </span>
             <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-             We provide Professional <span className="text-primary">Cleaning Services</span>
+              We provide Professional <span className="text-primary">Cleaning Services</span>
             </h1>
             <p className="text-sm text-muted-foreground">
-             Degaan Dhowr Cleaning company is a dedicated provider of professional cleaning services, committed to delivering exceptional cleanliness and customer satisfaction. With a focus on reliability, efficiency, and attention to detail, Degaan Dhowr aims to exceed client expectations in every cleaning project. Our skilled team employs modern techniques and eco-friendly products to ensure a pristine environment for homes and businesses alike. Trust Degaan Dhowr Cleaning services to transform spaces into immaculate havens, promoting health and well-being through their top-tier cleaning solutions
+              Degaan Dhowr Cleaning company is a dedicated provider of professional cleaning services, committed to delivering exceptional cleanliness and customer satisfaction. With a focus on reliability, efficiency, and attention to detail, Degaan Dhowr aims to exceed client expectations in every cleaning project. Our skilled team employs modern techniques and eco-friendly products to ensure a pristine environment for homes and businesses alike. Trust Degaan Dhowr Cleaning services to transform spaces into immaculate havens, promoting health and well-being through their top-tier cleaning solutions
             </p>
           </div>
         </div>
@@ -77,7 +77,7 @@ const About = () => {
       </section>
 
       {/* Story */}
-<section className="py-24 bg-white relative overflow-hidden">
+      <section className="py-24 bg-white relative overflow-hidden">
         {/* Decorative Background Elements */}
         <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl -z-10" />
         <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl -z-10" />
@@ -103,7 +103,7 @@ const About = () => {
                 To provide world-class professional cleaning services in Somalia, ensuring every home and office experiences the highest standards of hygiene and comfort.
               </p>
               <div className="absolute bottom-10 right-10 opacity-5 group-hover:opacity-10 transition-opacity">
-                 <Sparkles size={80} />
+                <Sparkles size={80} />
               </div>
             </div>
 
@@ -117,7 +117,7 @@ const About = () => {
                 To become the most trusted and innovative environmental service provider in the region, leading the way in eco-friendly and sustainable cleaning technologies.
               </p>
               <div className="absolute bottom-10 right-10 opacity-5 group-hover:opacity-10 transition-opacity">
-                 <Target size={80} />
+                <Target size={80} />
               </div>
             </div>
 
@@ -131,7 +131,7 @@ const About = () => {
                 Our primary goal is 100% customer satisfaction by delivering consistent, reliable, and high-quality maintenance services that exceed expectations every time.
               </p>
               <div className="absolute bottom-10 right-10 opacity-5 group-hover:opacity-10 transition-opacity">
-                 <Award size={80} />
+                <Award size={80} />
               </div>
             </div>
           </div>
@@ -176,9 +176,9 @@ const About = () => {
             Join thousands of satisfied customers who have transformed their cleaning routine with Deegan Dhowr.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/products">
+            <Link href="/shop/products">
               <button
-                
+
                 className="border-primary-foreground flex justify-between items-center gap-3 bg-black p-4 rounded-md  text-white hover:bg-black/96 hover:text-white-foreground "
               >
                 Shop Now

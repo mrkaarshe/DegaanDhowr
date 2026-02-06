@@ -59,7 +59,7 @@ export default function Navbar({ cartCount = 3 }) {
 
             {/* Icons Section */}
             <div className="flex items-center space-x-5">
-              <Link href="/cart" className="relative p-2 text-black hover:text-green-500 transition-colors">
+              <Link href="/shop/cart" className="relative p-2 text-black hover:text-green-500 transition-colors">
                 <ShoppingCart className="w-6 h-6" />
                 {cartCount > 0 && (
                   <span className="absolute top-0 right-0 bg-green-400 text-white text-[10px] rounded-full w-5 h-5 flex items-center justify-center font-bold border-2 border-white shadow-sm">
