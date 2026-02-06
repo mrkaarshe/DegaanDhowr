@@ -188,7 +188,7 @@ export default function Home() {
       </section>
 
       {/* ================= FEATURES SECTION (Below Hero) ================= */}
-      <section className="relative z-20 -mt-4 md:-mt-26">
+      {/* <section className="relative z-20 -mt-4 md:-mt-26">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((f, i) => (
@@ -206,7 +206,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
    
 

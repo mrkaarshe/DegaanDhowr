@@ -21,7 +21,7 @@ export default function Navbar({ cartCount = 3 }) {
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About Us' },
     { href: '/services', label: 'Services' },
-    { href: '/products', label: 'Products' },
+    { href: '/shop/products', label: 'Products' },
     { href: '/career', label: 'Career' },
     { href: '/contact', label: 'Contact Us' },
   ]
