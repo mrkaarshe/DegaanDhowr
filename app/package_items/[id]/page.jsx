@@ -185,7 +185,7 @@ export default function PackageDetailsPage() {
                 <>
                 <Check className="w-6 h-6 mr-2" /> Added to Cart</>
               ) : (
-                <><ShoppingCart className="w-6 h-6 mr-2" /> Add to Cart</>
+                <><ShoppingCart className="w-6 h-6 mr-2" /> Add product</>
               )}
             </Button>
           </div>

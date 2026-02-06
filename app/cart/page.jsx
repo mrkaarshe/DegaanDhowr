@@ -1,17 +1,16 @@
 'use client'
 
+import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import Link from 'next/link'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Input } from '@/components/ui/input'
-import { Trash2, Minus, Plus, ChevronLeft, ShoppingCart } from 'lucide-react'
-import { useCart } from '@/context/cart-context'
 
 export default function CartPage() {
   const router = useRouter()
-  const { state, removeItem, updateQuantity, cartTotal } = useCart()
-  const BASE_URL = "http://192.168.8.11:8000/"
+  
+  useEffect(() => {
+    router.replace('/shop/cart')
+  }, [router])
+  
+  return null
 
   if (state.items.length === 0) {
     return (
@@ -25,7 +24,7 @@ export default function CartPage() {
             <p className="text-gray-600 max-w-md mx-auto">
               Looks like you haven't added any items yet. Start shopping to find amazing cleaning products and packages!
             </p>
-            <Link href="/products">
+            <Link href="/shop/products">
               <Button className="bg-primary hover:bg-primary/90 text-white">
                 <ChevronLeft className="w-4 h-4 mr-2" />
                 Continue Shopping
@@ -42,7 +41,7 @@ export default function CartPage() {
       {/* Header */}
       <div className="bg-white border-b border-border">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <Link href="/products" className="inline-flex items-center gap-2 text-primary hover:text-primary/90 mb-4">
+          <Link href="/shop/products" className="inline-flex items-center gap-2 text-primary hover:text-primary/90 mb-4">
             <ChevronLeft className="w-4 h-4" />
             Continue Shopping
           </Link>
@@ -62,7 +61,7 @@ export default function CartPage() {
                     {/* Image */}
                     <div className="w-24 h-24 flex-shrink-0 bg-gray-200 rounded-lg overflow-hidden">
                       <img
-                        src={item.image?.startsWith('http') ? item.image : `${BASE_URL}${item.image}`} 
+                        src={item.image?.startsWith('http') ? item.image : `${ASSET_BASE_URL}${item.image}`} 
                         alt={item.title}
                         className="w-full h-full object-cover"
                       />
@@ -162,7 +161,7 @@ export default function CartPage() {
 
                 {/* Checkout Button */}
                 <Button
-                  onClick={() => router.push('/Checkaut/shipping')}
+                  onClick={() => router.push('/shop/checkout/payment')}
                   className="w-full bg-primary hover:bg-primary/90 text-white text-lg py-6"
                 >
                   Proceed to Checkout
@@ -172,7 +171,7 @@ export default function CartPage() {
                 <Button
                   variant="outline"
                   className="w-full border-primary text-primary hover:bg-secondary bg-transparent"
-                  onClick={() => router.push('/products')}
+                  onClick={() => router.push('/shop/products')}
                 >
                   Continue Shopping
                 </Button>

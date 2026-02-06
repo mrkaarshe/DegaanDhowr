@@ -34,15 +34,9 @@ export default function ProductDetailsPage() {
   }
 
   const handleAddToCart = () => {
+    // Pass full product object with quantity
     addItem({
-      id: product.id,
-      title: product.title,
-      code: product.code,
-      price: product.price,
-      package_price: product.package_price,
-      image: product.image,
-      type: product.type,
-      items: product.items,
+      ...product,
       quantity: quantity,
     })
     setIsAdded(true)
@@ -122,7 +116,7 @@ export default function ProductDetailsPage() {
             </div>
           )}
 
-          {/* Quantity + Add to Cart */}
+          {/* Quantity + Add product */}
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-2 bg-gray-100 rounded-lg p-1">
               <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="p-2 hover:bg-gray-200 rounded">
@@ -152,7 +146,7 @@ export default function ProductDetailsPage() {
               ) : (
                 <>
                   <ShoppingCart className="w-5 h-5 mr-2" />
-                  Add to Cart
+                  Add product
                 </>
               )}
             </Button>

@@ -20,6 +20,8 @@ import {Users,  DollarSign } from "lucide-react";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { getProducts } from '@/lib/api/services/products'
+import { ASSET_BASE_URL } from '@/lib/api/config'
 
 
 export default function Home() {
@@ -31,9 +33,6 @@ export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const router = useRouter()
   const { addItem } = useCart()
-
-  const API_URL = "/api/external/method/degaan_shop.degaan_shop.api.api.products"
-  const BASE_URL = "http://192.168.8.11:8000"
 
   const features = [
     { icon: Sparkles, title: 'Premium Quality', description: 'Professional-grade cleaning solutions.' },
@@ -81,12 +80,12 @@ export default function Home() {
     const fetchProducts = async () => {
       try {
         setLoading(true)
-        const response = await fetch(API_URL)
-        if (!response.ok) throw new Error(`Status: ${response.status}`)
-        const result = await response.json()
-        const data = result.message?.data || result.message || []
-        // Show only first 4 on home page
-        setProducts(Array.isArray(data) ? data.slice(0, 8) : [])
+        const result = await getProducts()
+        if (!result.ok) {
+          throw new Error(result.error || "Failed to load products. Check connection.")
+        }
+        // Show only first 8 on home page
+        setProducts(Array.isArray(result.data) ? result.data.slice(0, 8) : [])
       } catch (err: any) {
         setError("Failed to load products. Check connection.")
       } finally {
@@ -97,14 +96,8 @@ export default function Home() {
   }, [])
 
   const handleAddToCart = (product: any) => {
-    addItem({
-      id: product.code,
-      title: product.title,
-      code: product.code,
-      price: product.price,
-      image: product.image,
-      type: product.type,
-    })
+    // Pass full product object
+    addItem(product)
     setAddedItems((prev) => ({ ...prev, [product.code]: true }))
     setTimeout(() => setAddedItems((prev) => ({ ...prev, [product.code]: false })), 1500)
   }
@@ -250,10 +243,10 @@ export default function Home() {
                 <Card className="overflow-hidden border border-gray-100 bg-white p-3 rounded-[1.5rem] hover:shadow-2xl hover:shadow-gray-200/40 transition-all duration-500 group">
                   
                   {/* Image Section */}
-                  <Link href={`/shop/product/detail/${product.code}`}>
+                  <Link href={`/shop/products/detail/${product.code}`}>
                     <div className="relative aspect-square overflow-hidden rounded-[1rem] bg-[#F9F9F9]">
                       <img
-                        src={product.image?.startsWith('http') ? product.image : `${BASE_URL}${product.image}`}
+                        src={product.image?.startsWith('http') ? product.image : `${ASSET_BASE_URL}${product.image}`}
                         alt={product.title}
                         className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                       />
@@ -310,12 +303,12 @@ export default function Home() {
                           </>
                         ) : (
                           <>
-                            <Plus className="w-4 h-4" /> ADD TO CART
+                            <Plus className="w-4 h-4" /> ADD PRODUCT
                           </>
                         )}
                       </button>
 
-                      <Link href={`/shop/product/detail/${product.code}`}>
+                      <Link href={`/shop/products/detail/${product.code}`}>
                         <div className="w-12 h-12 border border-gray-100 text-gray-400 rounded-2xl flex items-center justify-center hover:bg-gray-50 hover:text-gray-900 transition-all cursor-pointer">
                           <Eye className="w-5 h-5" />
                         </div>
@@ -329,7 +322,7 @@ export default function Home() {
           )}
           
         </div>
-              <Link className='flex justify-center items-center mt-10' href="/products">
+              <Link className='flex justify-center items-center mt-10' href="/shop/products">
               <Button variant="outline" className="rounded-xl font-medium border-gray-200">
                 View All Collection <ArrowRight className="ml-2 w-4 h-4" />
               </Button>

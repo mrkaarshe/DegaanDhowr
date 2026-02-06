@@ -2,8 +2,7 @@
 import { useCart } from '@/context/cart-context'
 import { ShieldCheck, MapPin, CreditCard } from 'lucide-react'
 import { usePathname } from 'next/navigation'
-
-const BASE_URL = "http://192.168.8.11:8000/"
+import { ASSET_BASE_URL } from '@/lib/api/config'
 
 export default function CheckoutLayout({ children }) {
   const { state, cartTotal } = useCart()
@@ -52,7 +51,7 @@ export default function CheckoutLayout({ children }) {
                   <div key={item.id} className="flex gap-4 items-center">
                     <div className="w-12 h-12 rounded-lg bg-gray-50 border p-1 shrink-0">
                       <img 
-                        src={item.image?.startsWith('http') ? item.image : `${BASE_URL}${item.image}`} 
+                        src={item.image?.startsWith('http') ? item.image : `${ASSET_BASE_URL}${item.image}`} 
                         alt="" 
                         className="w-full h-full object-contain" 
                       />

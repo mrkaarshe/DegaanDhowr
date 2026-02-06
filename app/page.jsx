@@ -67,16 +67,8 @@ const videoTestimonials = [
   
 
     const handleAddToCart = (product) => {
-    addItem({
-      id: product.id,
-      title: product.title,
-      code: product.code,
-      price: product.price,
-      package_price: product.package_price,
-      image: product.image,
-      type: product.type,
-      items: product.items,
-    })
+    // Pass full product object
+    addItem(product)
 
     setAddedItems((prev) => ({ ...prev, [product.id]: true }))
     setTimeout(() => {
